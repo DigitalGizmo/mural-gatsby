@@ -10,11 +10,6 @@ const PanelLayout = ({ pageTitle, children}) => {
           title
         }
       },
-      # allFile {
-      #   nodes {
-      #     name
-      #   }
-      # }
     }  
   `)
 
