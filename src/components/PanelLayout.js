@@ -3,15 +3,15 @@ import { Link, useStaticQuery, graphql } from 'gatsby'
 import JSONData from '../../content/all-panels.json'
 
 const PanelLayout = ({ pageTitle, children}) => {
-  const data = useStaticQuery(graphql`
-    query {
-      site {
-        siteMetadata {
-          title
-        }
-      },
-    }  
-  `)
+  // const data = useStaticQuery(graphql`
+  //   query {
+  //     site {
+  //       siteMetadata {
+  //         title
+  //       }
+  //     },
+  //   }  
+  // `)
 
   return (
     <div className="wrapper"> 
@@ -28,22 +28,40 @@ const PanelLayout = ({ pageTitle, children}) => {
           <h3>Maine Labor Mural </h3>
             {/* Debug:  {data.allFile.nodes[0].name} */}
         </Link>
+      </div>
 
-        <ul>
-          {JSONData.data.allPanels.edges.map((panel, index) => {
-            return <li 
-              key={`panel_index_${index}`}
-            >
-              {panel.node.slug}
-            </li>
-          })
+      <div className="panel-nav">
+        {JSONData.data.allPanels.edges.map((panel, index) => {
+          if (panel.node.ordinal < 50) {
+            return ( 
+            // return ( chosenPanel.node.ordinal === (index + 1)
+            //   ? <img key={panel.node.slug}
+            //     src={`https://dev.digitalgizmo.com/mural-assets/images/mini-nav-${panel.node.ordinal}.jpg`}
+            //     alt={`${panel.node.panelTitle} selected`}
+            //     className="panel-nav-selected"
+            //     />
+            //   :
+              <Link  key={panel.node.slug}
+                // onClick={e => { setLinkDirection(navLinkIndexes[index]);}}
+                to={`/panels/${panel.node.slug}`} >
+                <img src={`https://dev.digitalgizmo.com/mural-assets/images/mini-nav-${panel.node.ordinal}.jpg`}
+                alt={panel.node.panelTitle}/>
+              </Link>
+            )
+          } else {
+            return " ";
           }
-        </ul>
+          })
+        }
+      </div> {/* panel-nav */}
 
+      <div
+        className="panel-title"
+      >
+        <h1>{pageTitle}</h1>
       </div>
         
         {children}
-
 
     </div>
   )
