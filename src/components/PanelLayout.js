@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { Link, useStaticQuery, graphql } from 'gatsby'
+import JSONData from '../../content/all-panels.json'
 
 const PanelLayout = ({ pageTitle, children}) => {
   const data = useStaticQuery(graphql`
@@ -9,11 +10,11 @@ const PanelLayout = ({ pageTitle, children}) => {
           title
         }
       },
-      allFile {
-        nodes {
-          name
-        }
-      }
+      # allFile {
+      #   nodes {
+      #     name
+      #   }
+      # }
     }  
   `)
 
@@ -29,8 +30,21 @@ const PanelLayout = ({ pageTitle, children}) => {
 
       <div className="site-title">
         <Link to='/'>
-          <h3>Maine Labor Mural Debug:  {data.allFile.nodes[0].name}</h3>
+          <h3>Maine Labor Mural </h3>
+            {/* Debug:  {data.allFile.nodes[0].name} */}
         </Link>
+
+        <ul>
+          {JSONData.data.allPanels.edges.map((panel, index) => {
+            return <li 
+              key={`panel_index_${index}`}
+            >
+              {panel.node.slug}
+            </li>
+          })
+          }
+        </ul>
+
       </div>
         
         {children}
