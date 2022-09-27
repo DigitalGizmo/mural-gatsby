@@ -3,6 +3,7 @@ module.exports = {
     title: `Maine Labor Mural`,
     siteUrl: `https://www.yourdomain.tld`
   },
+  pathPrefix: `/maine-labor-mural`,
   plugins: [
     {
       resolve: 'gatsby-source-filesystem',

@@ -1,12 +1,13 @@
 import * as React from 'react'
 import {Link} from 'gatsby'
-import PanelLayout from '../../components/PanelLayout'
-import Detail from '../../components/Detail'
-import Seo from '../../components/seo'
+import PanelLayout from '../components/PanelLayout'
+import Detail from '../components/Detail'
+import Seo from '../components/seo'
+import '../index.css'
 
 
 const Panel = ({pageContext}) => {
-  console.log( 'page context.: ' + pageContext.node.panelTitle);
+  // console.log( 'page context.: ' + pageContext.node.panelTitle);
   const prevPanelSlug = 'apprenticeship';
   const nextPanelSlug = 'jay-strike';
 

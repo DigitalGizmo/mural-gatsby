@@ -17,8 +17,7 @@ const Detail = ({pageContext}) => {
           version="1.1"
           viewBox="0 0 800 1800">
           <image id="document" x="0" y="0" 
-          // href={`https://dev.digitalgizmo.com/mural-assets/panels/panelpics/${chosenPanel.node.slug}.jpg`} 
-          href={`https://dev.digitalgizmo.com/mural-assets/panels/panelpics/child-labor.jpg`} 
+          href={`https://dev.digitalgizmo.com/mural-assets/panels/panelpics/${pageContext.node.slug}.jpg`} 
           width="800" height="1800" />
 
         </svg>

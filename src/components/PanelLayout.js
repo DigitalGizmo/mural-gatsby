@@ -1,6 +1,7 @@
 import * as React from 'react'
-import { Link, useStaticQuery, graphql } from 'gatsby'
+import { Link } from 'gatsby' // , useStaticQuery, graphql
 import JSONData from '../../content/all-panels.json'
+import '../index.css'
 
 const PanelLayout = ({ pageTitle, children}) => {
   // const data = useStaticQuery(graphql`

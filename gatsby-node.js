@@ -9,7 +9,7 @@ exports.onPostBuild = ({reporter}) => {
 // Create panel pages dynamically
 exports.createPages = ({ actions}) => {
   const { createPage } = actions
-  const panelTemplate = path.resolve(`src/pages/panels/panel.js`)
+  const panelTemplate = path.resolve(`src/templates/panel.js`)
 
   JSONData.data.allPanels.edges.forEach(panel_object => {
 
