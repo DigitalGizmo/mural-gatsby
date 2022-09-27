@@ -1,9 +1,18 @@
 import * as React from 'react'
+import { useState } from 'react'
 import { Link } from 'gatsby' // , useStaticQuery, graphql
 import JSONData from '../../content/all-panels.json'
 import '../index.css'
 
-const PanelLayout = ({ pageTitle, children}) => {
+const PanelLayout = ({ pageTitle, pageOrdinal, children}) => {
+  const [linkDirection, setLinkDirection] = useState(1);
+  const [navLinkIndexes, setNavLinkIndexes] = useState(
+    [1,1,1,1,1,1,1,1,1,1,1]
+  )
+
+  // console.log('chosenPanel ordinal: ' + chosenPanel.node.ordinal)
+  console.log('children: ' + children.pageContext)
+
   // const data = useStaticQuery(graphql`
   //   query {
   //     site {
@@ -34,16 +43,15 @@ const PanelLayout = ({ pageTitle, children}) => {
       <div className="panel-nav">
         {JSONData.data.allPanels.edges.map((panel, index) => {
           if (panel.node.ordinal < 50) {
-            return ( 
-            // return ( chosenPanel.node.ordinal === (index + 1)
-            //   ? <img key={panel.node.slug}
-            //     src={`https://dev.digitalgizmo.com/mural-assets/images/mini-nav-${panel.node.ordinal}.jpg`}
-            //     alt={`${panel.node.panelTitle} selected`}
-            //     className="panel-nav-selected"
-            //     />
-            //   :
+            return ( pageOrdinal === (index + 1)
+              ? <img key={panel.node.slug}
+                src={`https://dev.digitalgizmo.com/mural-assets/images/mini-nav-${panel.node.ordinal}.jpg`}
+                alt={`${panel.node.panelTitle} selected`}
+                className="panel-nav-selected"
+                />
+              :
               <Link  key={panel.node.slug}
-                // onClick={e => { setLinkDirection(navLinkIndexes[index]);}}
+                onClick={e => { setLinkDirection(navLinkIndexes[index]);}}
                 to={`/panels/${panel.node.slug}`} >
                 <img src={`https://dev.digitalgizmo.com/mural-assets/images/mini-nav-${panel.node.ordinal}.jpg`}
                 alt={panel.node.panelTitle}/>

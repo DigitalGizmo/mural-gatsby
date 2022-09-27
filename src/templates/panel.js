@@ -3,16 +3,26 @@ import {Link} from 'gatsby'
 import PanelLayout from '../components/PanelLayout'
 import Detail from '../components/Detail'
 import Seo from '../components/seo'
+import JSONData from '../../content/all-panels.json'
 import '../index.css'
 
 
 const Panel = ({pageContext}) => {
   // console.log( 'page context.: ' + pageContext.node.panelTitle);
-  const prevPanelSlug = 'apprenticeship';
-  const nextPanelSlug = 'jay-strike';
+  const nextPanelSlug = pageContext.node.ordinal < 11
+  ? JSONData.data.allPanels.edges[pageContext.node.ordinal].node.slug
+  : null;
+
+  const prevPanelSlug = pageContext.node.ordinal > 1 
+    ? JSONData.data.allPanels.edges[pageContext.node.ordinal - 2].node.slug
+    : null;
 
   return (
-    <PanelLayout pageTitle={pageContext.node.panelTitle}>
+    <PanelLayout 
+      pageTitle={pageContext.node.panelTitle}
+      // chosenPanel={pageContext} // whole, but Only need ordinal, slug, panelTitle
+      pageOrdinal={pageContext.node.ordinal}
+    >
       <div 
           className="content-area"
       >
