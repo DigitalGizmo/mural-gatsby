@@ -1,9 +1,12 @@
 import * as React from 'react'
 
-const Detail = ({pageContext}) => {
+const Detail = ({pageContext, setContentIndex}) => {
   const blurb = () => {
     return { __html:  pageContext.node.panelBlurb }
   }
+  const introInfo =  pageContext.node.articleSet.edges[0].node;
+  const foreInfo =  pageContext.node.articleSet.edges[1].node;
+
   return (
     <div className="current-panel">
       <article>
@@ -21,7 +24,31 @@ const Detail = ({pageContext}) => {
           width="800" height="1800" />
 
         </svg>
-      </div>  
+      </div> 
+
+      <nav className="tabs">
+      <h3>Learn More</h3>
+      <ul>
+        <li>
+          <a 
+            href="/"
+            onClick={e => { e.preventDefault(); setContentIndex(0);}}
+          >
+            { introInfo.title } 
+          </a>
+        </li>
+        <li>
+          <a 
+            href="/"
+            onClick={e => { e.preventDefault(); setContentIndex(1);}}
+          >
+            { foreInfo.title } 
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+
     </div>
   )
 }

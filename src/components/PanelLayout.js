@@ -2,16 +2,32 @@ import * as React from 'react'
 import { useState } from 'react'
 import { Link } from 'gatsby' // , useStaticQuery, graphql
 import JSONData from '../../content/all-panels.json'
+import Pop from './pops/pop'
 import '../index.css'
 
-const PanelLayout = ({ pageTitle, pageOrdinal, children}) => {
+const PanelLayout = ({ pageTitle, pageOrdinal, showPop, 
+    popData, children}) => {
   const [linkDirection, setLinkDirection] = useState(1);
   const [navLinkIndexes, setNavLinkIndexes] = useState(
     [1,1,1,1,1,1,1,1,1,1,1]
   )
 
+  // Prevent click on (non-link) FullEntry from closing window
+  const closePop = (event) => {
+    console.log(event.target.className)
+    event.preventDefault()
+    event.stopPropagation()
+    // // Close if click was on lightbox (background) or close
+    // if (event.target.id === 'slimpop-overlay' ||
+    //     event.target.id === 'close-link' ||
+    //     event.target.id === 'pop-close') {
+    //   setShowPop(false);
+    // }
+  }
+  // const [showPop, setShowPop] = useState(false);
+  
   // console.log('chosenPanel ordinal: ' + chosenPanel.node.ordinal)
-  console.log('children: ' + children.pageContext)
+  // console.log('children: ' + children.pageContext)
 
   // const data = useStaticQuery(graphql`
   //   query {
@@ -35,7 +51,7 @@ const PanelLayout = ({ pageTitle, pageOrdinal, children}) => {
 
       <div className="site-title">
         <Link to='/'>
-          <h3>Maine Labor Mural </h3>
+          <h3>Maine Labor Mural debug: showPop {showPop.toString()}</h3>
             {/* Debug:  {data.allFile.nodes[0].name} */}
         </Link>
       </div>
@@ -70,8 +86,14 @@ const PanelLayout = ({ pageTitle, pageOrdinal, children}) => {
         <h1>{pageTitle}</h1>
       </div>
         
-        {children}
+      {children}
 
+      { showPop &&
+        <Pop
+          closePop = {closePop}
+          popData = {popData} 
+        />
+      }
     </div>
   )
 }
