@@ -1,6 +1,9 @@
 import * as React from 'react'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import { Link } from 'gatsby' // , useStaticQuery, graphql
+// import { GlobalProvider, SetDirectionGlobalContext, 
+//   GetDirectionGlobalContext } from '../context/GlobalContextXX';
+import GlobalContextProvider from "../context/GlobalContext"
 import JSONData from '../../content/all-panels.json'
 import Pop from './pops/pop'
 import '../index.css'
@@ -15,6 +18,9 @@ const PanelLayout = ({children, pageContext}) => {
   const pageOrdinal = 1
   const pageTitle = 'temp page title'
 
+  // const { setDirection } = useContext(SetDirectionGlobalContext);
+
+  // setDirection(9);
 
   const [linkDirection, setLinkDirection] = useState(1);
   const [navLinkIndexes, setNavLinkIndexes] = useState(
@@ -51,6 +57,7 @@ const PanelLayout = ({children, pageContext}) => {
   // pageContext.node will only be defined for panels
   if (pageContext.node) {
     return (
+      <GlobalContextProvider>
       <div className="wrapper"> 
         <div className="msm-link">
           <a href="https://mainestatemuseum.org/exhibit/maine-labor-mural/">
@@ -104,6 +111,7 @@ const PanelLayout = ({children, pageContext}) => {
           />
         }
       </div>
+      </GlobalContextProvider>
     )
   }
   return <div>{children}</div>

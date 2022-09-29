@@ -1,7 +1,10 @@
 import * as React from 'react'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import {Link} from 'gatsby'
-import PanelLayout from '../components/PanelLayout'
+// import PanelLayout from '../components/PanelLayout'
+// import { SetDirectionGlobalContext, GetDirectionGlobalContext, 
+//   GlobalProvider } from '../context/GlobalContextXX';
+import { GlobalContext } from "../context/GlobalContext"
 import Detail from '../components/Detail'
 import Article from '../components/Article'
 import Seo from '../components/seo'
@@ -20,7 +23,11 @@ const Panel = ({pageContext}) => {
     ? JSONData.data.allPanels.edges[pageContext.node.ordinal - 2].node.slug
     : null;
 
-  const [showPop, setShowPop] = useState(false);
+  // const direction = useContext(GetDirectionGlobalContext);
+  // const { openMenu, setOpenMenu } = useContext(GlobalContext)
+  const { showPop, setShowPop } = useContext(GlobalContext)
+
+  // const [showPop, setShowPop] = useState(false);
   const [popData, setPopData] = useState();  
 
   // const openPop = (popParams) => {
@@ -97,8 +104,6 @@ const Panel = ({pageContext}) => {
           />
         }
 
-
-
         <div className="next-panel">
           {nextPanelSlug &&
             <img src={`https://dev.digitalgizmo.com/mural-assets/panels/panelpics/${pageContext.node.slug}-next.jpg`} 
@@ -112,6 +117,17 @@ const Panel = ({pageContext}) => {
                 alt="next arrow" className="arrow"/>
                 {/* debug,
                 chosenPanel - 1: {chosenPanel.node.ordinal - 1} */}
+
+                {/* <button
+                  onClick={() => {
+                    setOpenMenu(!openMenu)
+                  }}
+                >
+                  Toggle Menu
+                </button>
+                <p>The menu is {openMenu ? `true` : `false`}.</p> */}
+              <p>showPop {showPop ? `true` : `false`}.</p>
+
             </Link>
           }
         </div>
