@@ -5,8 +5,17 @@ import JSONData from '../../content/all-panels.json'
 import Pop from './pops/pop'
 import '../index.css'
 
-const PanelLayout = ({ pageTitle, pageOrdinal, showPop, 
-    popData, children}) => {
+// const PanelLayout = ({ pageTitle, pageOrdinal, showPop, 
+//     popData, children}) => {
+const PanelLayout = ({children, pageContext}) => {
+
+  // temp constants
+  const showPop = false
+  const popData = {notin: 'nothin'}
+  const pageOrdinal = 1
+  const pageTitle = 'temp page title'
+
+
   const [linkDirection, setLinkDirection] = useState(1);
   const [navLinkIndexes, setNavLinkIndexes] = useState(
     [1,1,1,1,1,1,1,1,1,1,1]
@@ -39,63 +48,65 @@ const PanelLayout = ({ pageTitle, pageOrdinal, showPop,
   //   }  
   // `)
 
-  return (
-    <div className="wrapper"> 
+  // pageContext.node will only be defined for panels
+  if (pageContext.node) {
+    return (
+      <div className="wrapper"> 
+        <div className="msm-link">
+          <a href="https://mainestatemuseum.org/exhibit/maine-labor-mural/">
+            <img src="https://dev.digitalgizmo.com/mural-assets/images/msm-logo.svg" alt="Maine State Museum" className="msm-logo"/>
+          </a>
+        </div>
 
+        <div className="site-title">
+          <Link to='/'>
+            <h3>Maine Labor Mural debug: showPop {showPop.toString()}</h3>
+              {/* Debug:  {data.allFile.nodes[0].name} */}
+          </Link>
+        </div>
 
-      <div className="msm-link">
-        <a href="https://mainestatemuseum.org/exhibit/maine-labor-mural/">
-          <img src="https://dev.digitalgizmo.com/mural-assets/images/msm-logo.svg" alt="Maine State Museum" className="msm-logo"/>
-        </a>
-      </div>
-
-      <div className="site-title">
-        <Link to='/'>
-          <h3>Maine Labor Mural debug: showPop {showPop.toString()}</h3>
-            {/* Debug:  {data.allFile.nodes[0].name} */}
-        </Link>
-      </div>
-
-      <div className="panel-nav">
-        {JSONData.data.allPanels.edges.map((panel, index) => {
-          if (panel.node.ordinal < 50) {
-            return ( pageOrdinal === (index + 1)
-              ? <img key={panel.node.slug}
-                src={`https://dev.digitalgizmo.com/mural-assets/images/mini-nav-${panel.node.ordinal}.jpg`}
-                alt={`${panel.node.panelTitle} selected`}
-                className="panel-nav-selected"
-                />
-              :
-              <Link  key={panel.node.slug}
-                onClick={e => { setLinkDirection(navLinkIndexes[index]);}}
-                to={`/panels/${panel.node.slug}`} >
-                <img src={`https://dev.digitalgizmo.com/mural-assets/images/mini-nav-${panel.node.ordinal}.jpg`}
-                alt={panel.node.panelTitle}/>
-              </Link>
-            )
-          } else {
-            return " ";
+        <div className="panel-nav">
+          {JSONData.data.allPanels.edges.map((panel, index) => {
+            if (panel.node.ordinal < 50) {
+              return ( pageOrdinal === (index + 1)
+                ? <img key={panel.node.slug}
+                  src={`https://dev.digitalgizmo.com/mural-assets/images/mini-nav-${panel.node.ordinal}.jpg`}
+                  alt={`${panel.node.panelTitle} selected`}
+                  className="panel-nav-selected"
+                  />
+                :
+                <Link  key={panel.node.slug}
+                  onClick={e => { setLinkDirection(navLinkIndexes[index]);}}
+                  to={`/panels/${panel.node.slug}`} >
+                  <img src={`https://dev.digitalgizmo.com/mural-assets/images/mini-nav-${panel.node.ordinal}.jpg`}
+                  alt={panel.node.panelTitle}/>
+                </Link>
+              )
+            } else {
+              return " ";
+            }
+            })
           }
-          })
+        </div> {/* panel-nav */}
+
+        <div
+          className="panel-title"
+        >
+          <h1>{pageTitle}</h1>
+        </div>
+          
+        {children}
+
+        { showPop &&
+          <Pop
+            closePop = {closePop}
+            popData = {popData} 
+          />
         }
-      </div> {/* panel-nav */}
-
-      <div
-        className="panel-title"
-      >
-        <h1>{pageTitle}</h1>
       </div>
-        
-      {children}
-
-      { showPop &&
-        <Pop
-          closePop = {closePop}
-          popData = {popData} 
-        />
-      }
-    </div>
-  )
+    )
+  }
+  return <div>{children}</div>
 }
 
 export default PanelLayout

@@ -53,13 +53,13 @@ const Panel = ({pageContext}) => {
   // }
 
   return (
-    <PanelLayout 
-      pageTitle={pageContext.node.panelTitle}
-      // chosenPanel={pageContext} // whole, but Only need ordinal, slug, panelTitle
-      pageOrdinal={pageContext.node.ordinal}
-      showPop={showPop}
-      popData={popData}
-    >
+    // <PanelLayout 
+    //   pageTitle={pageContext.node.panelTitle}
+    //   // chosenPanel={pageContext} // whole, but Only need ordinal, slug, panelTitle
+    //   pageOrdinal={pageContext.node.ordinal}
+    //   showPop={showPop}
+    //   popData={popData}
+    // >
       <div 
           className="content-area"
       >
@@ -116,7 +116,7 @@ const Panel = ({pageContext}) => {
           }
         </div>
       </div>
-    </PanelLayout>
+    // </PanelLayout>
   )
 }
 

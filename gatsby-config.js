@@ -6,6 +6,12 @@ module.exports = {
   pathPrefix: `/maine-labor-mural`,
   plugins: [
     {
+      resolve: `gatsby-plugin-layout`,
+      options: {
+        component: require.resolve(`./src/components/PanelLayout`),
+      },
+    },
+    {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: `content`,
