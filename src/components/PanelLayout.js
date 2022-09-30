@@ -3,7 +3,10 @@ import { useState, useContext } from 'react'
 import { Link } from 'gatsby' // , useStaticQuery, graphql
 // import { GlobalProvider, SetDirectionGlobalContext, 
 //   GetDirectionGlobalContext } from '../context/GlobalContextXX';
-import GlobalContextProvider from "../context/GlobalContext"
+// import GlobalContextProvider from "../context/GlobalContext"
+
+import { GlobalContext } from "../context/GlobalContext"
+
 import JSONData from '../../content/all-panels.json'
 import Pop from './pops/pop'
 import '../index.css'
@@ -13,12 +16,14 @@ import '../index.css'
 const PanelLayout = ({children, pageContext}) => {
 
   // temp constants
-  const showPop = false
+  // const showPop = false
   const popData = {notin: 'nothin'}
-  const pageOrdinal = 1
-  const pageTitle = 'temp page title'
+  // const pageOrdinal = 1
+  // const pageTitle = 'temp page title'
 
   // const { setDirection } = useContext(SetDirectionGlobalContext);
+  const { showPop, setShowPop } = useContext(GlobalContext)
+  const { panelTitle, pageOrdinal } = useContext(GlobalContext)
 
   // setDirection(9);
 
@@ -32,12 +37,12 @@ const PanelLayout = ({children, pageContext}) => {
     console.log(event.target.className)
     event.preventDefault()
     event.stopPropagation()
-    // // Close if click was on lightbox (background) or close
-    // if (event.target.id === 'slimpop-overlay' ||
-    //     event.target.id === 'close-link' ||
-    //     event.target.id === 'pop-close') {
-    //   setShowPop(false);
-    // }
+    // Close if click was on lightbox (background) or close
+    if (event.target.id === 'slimpop-overlay' ||
+        event.target.id === 'close-link' ||
+        event.target.id === 'pop-close') {
+      setShowPop(false);
+    }
   }
   // const [showPop, setShowPop] = useState(false);
   
@@ -57,7 +62,7 @@ const PanelLayout = ({children, pageContext}) => {
   // pageContext.node will only be defined for panels
   if (pageContext.node) {
     return (
-      <GlobalContextProvider>
+      // <GlobalContextProvider>
       <div className="wrapper"> 
         <div className="msm-link">
           <a href="https://mainestatemuseum.org/exhibit/maine-labor-mural/">
@@ -99,7 +104,7 @@ const PanelLayout = ({children, pageContext}) => {
         <div
           className="panel-title"
         >
-          <h1>{pageTitle}</h1>
+          <h1>{panelTitle}</h1>
         </div>
           
         {children}
@@ -111,7 +116,7 @@ const PanelLayout = ({children, pageContext}) => {
           />
         }
       </div>
-      </GlobalContextProvider>
+      // </GlobalContextProvider>
     )
   }
   return <div>{children}</div>

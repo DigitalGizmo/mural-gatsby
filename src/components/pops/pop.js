@@ -5,16 +5,16 @@ const Pop = ({popData, closePop}) => {
   let subtitle = "also to be set";
   let popType = "tbd";
 
-  if (popData.popType === 'hotspot') {
-    // console.log('hotspot');
-    subtitle = 'Hotspot';
-    title = popData.hotspotNode.title;
-    popType = 'hotspot';
-  } else { // learnmore
-    subtitle = popData.learnmoreNode.learnmoreType;
-    title = popData.learnmoreNode.title;
-    popType = popData.learnmoreNode.learnmoreType;
-  }
+  // if (popData.popType === 'hotspot') {
+  //   // console.log('hotspot');
+  //   subtitle = 'Hotspot';
+  //   title = popData.hotspotNode.title;
+  //   popType = 'hotspot';
+  // } else { // learnmore
+  //   subtitle = popData.learnmoreNode.learnmoreType;
+  //   title = popData.learnmoreNode.title;
+  //   popType = popData.learnmoreNode.learnmoreType;
+  // }
   
   return (
     <div id="slimpop-overlay" onClick={closePop}> {/* className="lightbox"  onClick={closeFullEntry} */}

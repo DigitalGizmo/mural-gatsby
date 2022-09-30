@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { useState, useContext } from 'react'
+import { useState, useContext, useEffect } from 'react'
 import {Link} from 'gatsby'
 // import PanelLayout from '../components/PanelLayout'
 // import { SetDirectionGlobalContext, GetDirectionGlobalContext, 
@@ -26,6 +26,8 @@ const Panel = ({pageContext}) => {
   // const direction = useContext(GetDirectionGlobalContext);
   // const { openMenu, setOpenMenu } = useContext(GlobalContext)
   const { showPop, setShowPop } = useContext(GlobalContext)
+  const { setPanelTitle } = useContext(GlobalContext)
+  const { setPageOrdinal } = useContext(GlobalContext)
 
   // const [showPop, setShowPop] = useState(false);
   const [popData, setPopData] = useState();  
@@ -45,6 +47,11 @@ const Panel = ({pageContext}) => {
     // console.log('popParams.learnmoreNode.title: ' + popParams.learnmoreNode.title);
     setShowPop(true);
   }
+
+  useEffect(() => {
+    setPanelTitle(pageContext.node.panelTitle)
+    setPageOrdinal(pageContext.node.ordinal)
+  }, [])
 
   // // Prevent click on (non-link) FullEntry from closing window
   // const closePop = (event) => {

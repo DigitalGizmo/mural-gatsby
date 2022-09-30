@@ -6,11 +6,15 @@ import React, { createContext } from "react"
 const initialState = {
   openMenu: false,
   showPop: false,
+  panelTitle: "to be dynamic",
+  pageOrdinal: 1,
 }
 
 const actions = {
   SET_MENU: "SET_MENU",
   SET_SHOW_POP: "SET_SHOW_POP",
+  SET_PANEL_TITLE: "SET_PANEL_TITLE",
+  SET_PAGE_ORDINAL: "SET_PAGE_ORDINAL",
 }
 
 const reducer = (state, action) => {
@@ -19,6 +23,10 @@ const reducer = (state, action) => {
       return { ...state, openMenu: action.value }
     case actions.SET_SHOW_POP:
       return { ...state, showPop: action.value }
+    case actions.SET_PANEL_TITLE:
+      return { ...state, panelTitle: action.value }
+    case actions.SET_PAGE_ORDINAL:
+      return { ...state, pageOrdinal: action.value }
     default:
       return state
   }
@@ -45,9 +53,17 @@ const GlobalContextProvider = ({ children }) => {
     setOpenMenu: value => {
       dispatch({ type: actions.SET_MENU, value })
     },
-    showPop:state.showPop,
+    showPop: state.showPop,
     setShowPop: value => {
       dispatch({ type: actions.SET_SHOW_POP, value })
+    },    
+    panelTitle: state.panelTitle,
+    setPanelTitle: value => {
+      dispatch({ type: actions.SET_PANEL_TITLE, value })
+    },    
+    pageOrdinal: state.pageOrdinal,
+    setPageOrdinal: value => {
+      dispatch({ type: actions.SET_PAGE_ORDINAL, value })
     },    
   }
 
