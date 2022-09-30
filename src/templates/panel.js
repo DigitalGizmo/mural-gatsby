@@ -29,7 +29,7 @@ const Panel = ({pageContext}) => {
 
 
   // const [contentIndex, setContentIndex] = useState(2);
-  const { contentIndex, setContentIndex } = useContext(GlobalContext)
+  const { contentIndex, linkDirection, setLinkDirection } = useContext(GlobalContext)
   const { showPop, setShowPop } = useContext(GlobalContext)
   // , contentIndex, setContentIndex
 
@@ -39,7 +39,7 @@ const Panel = ({pageContext}) => {
   // const [showPop, setShowPop] = useState(false);
   const [popData, setPopData] = useState();  
 
-  const linkDirection = 1
+  // const linkDirection = 1
 
   // const openPop = (popParams) => {
   //   console.log('got to temp open pop in panel')
@@ -63,7 +63,7 @@ const Panel = ({pageContext}) => {
   }, [])
 
   return (
-    <AnimatePresence initial={false}> 
+    // <AnimatePresence initial={false}> 
       <motion.div 
         className="content-area"
         key={pageContext.node.slug}
@@ -83,7 +83,7 @@ const Panel = ({pageContext}) => {
           }
           {prevPanelSlug &&
             <Link 
-              // onClick={e => { setLinkDirection(0);}}
+              onClick={e => { setLinkDirection(0);}}
               to={`/panels/${prevPanelSlug}`} >
               <img src="https://dev.digitalgizmo.com/mural-assets/panels/panelpics/arrow-prev.png" 
                 alt="prev arrow" className="arrow"/>
@@ -116,28 +116,17 @@ const Panel = ({pageContext}) => {
           }
           {nextPanelSlug &&
             <Link 
-              // onClick={e => { setLinkDirection(1);}}
+              onClick={e => { setLinkDirection(1);}}
               to={`/panels/${nextPanelSlug}`} >
               <img src="https://dev.digitalgizmo.com/mural-assets/panels/panelpics/arrow-next.png" 
                 alt="next arrow" className="arrow"/>
-                {/* debug,
-                chosenPanel - 1: {chosenPanel.node.ordinal - 1} */}
-
-                {/* <button
-                  onClick={() => {
-                    setOpenMenu(!openMenu)
-                  }}
-                >
-                  Toggle Menu
-                </button>
-                <p>The menu is {openMenu ? `true` : `false`}.</p> */}
-              <p>showPop {showPop ? `true` : `false`}.</p>
+              {/* <p>debug: showPop {showPop ? `true` : `false`}.</p> */}
 
             </Link>
           }
         </div>
       </motion.div>
-    </AnimatePresence>
+    // </AnimatePresence>
   )
 }
 

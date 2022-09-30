@@ -9,6 +9,7 @@ const initialState = {
   panelTitle: "to be dynamic",
   pageOrdinal: 1,
   contentIndex: 2,
+  linkDirection: 1,
 }
 
 const actions = {
@@ -17,6 +18,8 @@ const actions = {
   SET_PANEL_TITLE: "SET_PANEL_TITLE",
   SET_PAGE_ORDINAL: "SET_PAGE_ORDINAL",
   SET_CONTENT_INDEX: "SET_CONTENT_INDEX",
+  SET_LINK_DIRECTION: "SET_LINK_DIRECTION",
+  // : "",
 }
 
 const reducer = (state, action) => {
@@ -31,6 +34,10 @@ const reducer = (state, action) => {
       return { ...state, pageOrdinal: action.value }
     case actions.SET_CONTENT_INDEX:
       return { ...state, contentIndex: action.value }
+    case actions.SET_LINK_DIRECTION:
+      return { ...state, linkDirection: action.value }
+    // case actions.:
+    //   return { ...state, : action.value }
     default:
       return state
   }
@@ -73,6 +80,14 @@ const GlobalContextProvider = ({ children }) => {
     setContentIndex: value => {
       dispatch({ type: actions.SET_CONTENT_INDEX, value })
     },    
+    linkDirection: state.linkDirection,
+    setLinkDirection: value => {
+      dispatch({ type: actions.SET_LINK_DIRECTION, value })
+    },    
+    // : state.,
+    // : value => {
+    //   dispatch({ type: actions., value })
+    // },    
   }
 
   return (

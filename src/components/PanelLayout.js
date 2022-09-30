@@ -23,14 +23,15 @@ const PanelLayout = ({children, pageContext }) => { // , pageContext
   // const pageTitle = 'temp page title'
 
   // const { setDirection } = useContext(SetDirectionGlobalContext);
-  const { showPop, setShowPop, contentIndex, setContentIndex } = useContext(GlobalContext)
+  const { showPop, setShowPop, contentIndex, 
+    setContentIndex, setLinkDirection } = useContext(GlobalContext)
   const { panelTitle, pageOrdinal } = useContext(GlobalContext)
 
   // const contentIndex = 2; // temp
 
   // setDirection(9);
 
-  const [linkDirection, setLinkDirection] = useState(1);
+  // const [linkDirection, setLinkDirection] = useState(1);
   const [navLinkIndexes, setNavLinkIndexes] = useState(
     [1,1,1,1,1,1,1,1,1,1,1]
   )
@@ -74,16 +75,18 @@ const PanelLayout = ({children, pageContext }) => { // , pageContext
       <div className="wrapper"> 
         <div className="msm-link">
           <a href="https://mainestatemuseum.org/exhibit/maine-labor-mural/">
-            <img src="https://dev.digitalgizmo.com/mural-assets/images/msm-logo.svg" alt="Maine State Museum" className="msm-logo"/>
+            <img src="https://dev.digitalgizmo.com/mural-assets/images/msm-logo.svg" 
+              alt="Maine State Museum" className="msm-logo"/>
           </a>
         </div>
 
         <div className="site-title">
           <Link to='/'>
-            <h3>Maine Labor Mural debug: ordinal {pageOrdinal}</h3>
+            <h3>Maine Labor Mural</h3>
+            {/* debug: ordinal {pageOrdinal} */}
             {/* slug {pageContext.node.slug} */}
-              {/* debug: showPop {showPop.toString()} */}
-              {/* Debug:  {data.allFile.nodes[0].name} */}
+            {/* debug: showPop {showPop.toString()} */}
+            {/* Debug:  {data.allFile.nodes[0].name} */}
           </Link>
         </div>
 
