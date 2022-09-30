@@ -8,6 +8,7 @@ const initialState = {
   showPop: false,
   panelTitle: "to be dynamic",
   pageOrdinal: 1,
+  contentIndex: 2,
 }
 
 const actions = {
@@ -15,6 +16,7 @@ const actions = {
   SET_SHOW_POP: "SET_SHOW_POP",
   SET_PANEL_TITLE: "SET_PANEL_TITLE",
   SET_PAGE_ORDINAL: "SET_PAGE_ORDINAL",
+  SET_CONTENT_INDEX: "SET_CONTENT_INDEX",
 }
 
 const reducer = (state, action) => {
@@ -27,6 +29,8 @@ const reducer = (state, action) => {
       return { ...state, panelTitle: action.value }
     case actions.SET_PAGE_ORDINAL:
       return { ...state, pageOrdinal: action.value }
+    case actions.SET_CONTENT_INDEX:
+      return { ...state, contentIndex: action.value }
     default:
       return state
   }
@@ -64,6 +68,10 @@ const GlobalContextProvider = ({ children }) => {
     pageOrdinal: state.pageOrdinal,
     setPageOrdinal: value => {
       dispatch({ type: actions.SET_PAGE_ORDINAL, value })
+    },    
+    pageOrdinal: state.contentIndex,
+    setContentIndex: value => {
+      dispatch({ type: actions.SET_CONTENT_INDEX, value })
     },    
   }
 

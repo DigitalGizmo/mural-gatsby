@@ -6,6 +6,7 @@ import { Link } from 'gatsby' // , useStaticQuery, graphql
 // import GlobalContextProvider from "../context/GlobalContext"
 
 import { GlobalContext } from "../context/GlobalContext"
+import {motion, AnimatePresence } from 'framer-motion'
 
 import JSONData from '../../content/all-panels.json'
 import Pop from './pops/pop'
@@ -13,7 +14,7 @@ import '../index.css'
 
 // const PanelLayout = ({ pageTitle, pageOrdinal, showPop, 
 //     popData, children}) => {
-const PanelLayout = ({children, pageContext}) => {
+const PanelLayout = ({children }) => { // , pageContext
 
   // temp constants
   // const showPop = false
@@ -24,6 +25,8 @@ const PanelLayout = ({children, pageContext}) => {
   // const { setDirection } = useContext(SetDirectionGlobalContext);
   const { showPop, setShowPop } = useContext(GlobalContext)
   const { panelTitle, pageOrdinal } = useContext(GlobalContext)
+
+  const contentIndex = 2; // temp
 
   // setDirection(9);
 
@@ -60,7 +63,7 @@ const PanelLayout = ({children, pageContext}) => {
   // `)
 
   // pageContext.node will only be defined for panels
-  if (pageContext.node) {
+  // if (pageContext.node) {
     return (
       // <GlobalContextProvider>
       <div className="wrapper"> 
@@ -72,7 +75,9 @@ const PanelLayout = ({children, pageContext}) => {
 
         <div className="site-title">
           <Link to='/'>
-            <h3>Maine Labor Mural debug: showPop {showPop.toString()}</h3>
+            <h3>Maine Labor Mural debug: ordinal {pageOrdinal}</h3>
+            {/* slug {pageContext.node.slug} */}
+              {/* debug: showPop {showPop.toString()} */}
               {/* Debug:  {data.allFile.nodes[0].name} */}
           </Link>
         </div>
@@ -101,11 +106,39 @@ const PanelLayout = ({children, pageContext}) => {
           }
         </div> {/* panel-nav */}
 
-        <div
+        {/* <div
           className="panel-title"
         >
           <h1>{panelTitle}</h1>
-        </div>
+        </div> */}
+
+
+        <AnimatePresence initial={false}>
+          <motion.div 
+            className="panel-title"
+            // key={pageOrdinal}
+            key={ panelTitle }
+            // variants={variants}
+            initial={{ opacity: 0.2}}
+            animate={{ opacity: 1}}
+            exit={{ opacity: 0.2}}
+            transition={{duration: 0.7}}
+          >
+            <h1>
+              {contentIndex === 2
+                ? <span>{ panelTitle }</span>
+                : <a href="/"
+                    // onClick={e => { e.preventDefault(); onChooseContent(2);}}
+                  >
+                    { panelTitle }
+                  </a>
+              // exit? { exitComparator.toString()} 
+              }
+            </h1>
+          </motion.div>
+        </AnimatePresence>
+
+
           
         {children}
 
@@ -118,8 +151,8 @@ const PanelLayout = ({children, pageContext}) => {
       </div>
       // </GlobalContextProvider>
     )
-  }
-  return <div>{children}</div>
+  // }
+  // return <div>{children}</div>
 }
 
 export default PanelLayout

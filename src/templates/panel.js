@@ -5,6 +5,7 @@ import {Link} from 'gatsby'
 // import { SetDirectionGlobalContext, GetDirectionGlobalContext, 
 //   GlobalProvider } from '../context/GlobalContextXX';
 import { GlobalContext } from "../context/GlobalContext"
+import {motion, AnimatePresence } from 'framer-motion'
 import Detail from '../components/Detail'
 import Article from '../components/Article'
 import Seo from '../components/seo'
@@ -14,23 +15,25 @@ import '../index.css'
 
 const Panel = ({pageContext}) => {
   // console.log( 'page context.: ' + pageContext.node.panelTitle);
-  const [contentIndex, setContentIndex] = useState(2);
   const nextPanelSlug = pageContext.node.ordinal < 11
-    ? JSONData.data.allPanels.edges[pageContext.node.ordinal].node.slug
-    : null;
-
+  ? JSONData.data.allPanels.edges[pageContext.node.ordinal].node.slug
+  : null;
+  
   const prevPanelSlug = pageContext.node.ordinal > 1 
-    ? JSONData.data.allPanels.edges[pageContext.node.ordinal - 2].node.slug
-    : null;
-
+  ? JSONData.data.allPanels.edges[pageContext.node.ordinal - 2].node.slug
+  : null;
+  
   // const direction = useContext(GetDirectionGlobalContext);
   // const { openMenu, setOpenMenu } = useContext(GlobalContext)
+  const [contentIndex, setContentIndex] = useState(2);
   const { showPop, setShowPop } = useContext(GlobalContext)
-  const { setPanelTitle } = useContext(GlobalContext)
-  const { setPageOrdinal } = useContext(GlobalContext)
+  // , contentIndex, setContentIndex
+  const { setPanelTitle, setPageOrdinal } = useContext(GlobalContext)
 
   // const [showPop, setShowPop] = useState(false);
   const [popData, setPopData] = useState();  
+
+  const linkDirection = 1
 
   // const openPop = (popParams) => {
   //   console.log('got to temp open pop in panel')
@@ -53,29 +56,18 @@ const Panel = ({pageContext}) => {
     setPageOrdinal(pageContext.node.ordinal)
   }, [])
 
-  // // Prevent click on (non-link) FullEntry from closing window
-  // const closePop = (event) => {
-  //   console.log(event.target.className)
-  //   event.preventDefault()
-  //   event.stopPropagation()
-  //   // Close if click was on lightbox (background) or close
-  //   if (event.target.id === 'slimpop-overlay' ||
-  //       event.target.id === 'close-link' ||
-  //       event.target.id === 'pop-close') {
-  //     setShowPop(false);
-  //   }
-  // }
-
   return (
-    // <PanelLayout 
-    //   pageTitle={pageContext.node.panelTitle}
-    //   // chosenPanel={pageContext} // whole, but Only need ordinal, slug, panelTitle
-    //   pageOrdinal={pageContext.node.ordinal}
-    //   showPop={showPop}
-    //   popData={popData}
-    // >
-      <div 
-          className="content-area"
+    <AnimatePresence initial={false}> 
+      <motion.div 
+        className="content-area"
+        key={pageContext.node.slug}
+        initial={{ x: linkDirection === 1 ? '100%' : '-100%'}}
+        animate={{ x: 0, opacity: 1, transition: {  duration: 0.7 } }}
+        // exit={{x: linkDirection === 1 ? '-100%' : '100%', 
+        //   transition: {  duration: 1 }
+        // }}
+        exit={{opacity: 0.2, transition: {duration: 0.5}}}
+        // {...bind()}
       >
 
         <div className="prev-panel">
@@ -138,8 +130,8 @@ const Panel = ({pageContext}) => {
             </Link>
           }
         </div>
-      </div>
-    // </PanelLayout>
+      </motion.div>
+    </AnimatePresence>
   )
 }
 
