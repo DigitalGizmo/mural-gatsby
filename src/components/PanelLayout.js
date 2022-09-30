@@ -14,7 +14,7 @@ import '../index.css'
 
 // const PanelLayout = ({ pageTitle, pageOrdinal, showPop, 
 //     popData, children}) => {
-const PanelLayout = ({children }) => { // , pageContext
+const PanelLayout = ({children, pageContext }) => { // , pageContext
 
   // temp constants
   // const showPop = false
@@ -23,10 +23,10 @@ const PanelLayout = ({children }) => { // , pageContext
   // const pageTitle = 'temp page title'
 
   // const { setDirection } = useContext(SetDirectionGlobalContext);
-  const { showPop, setShowPop } = useContext(GlobalContext)
+  const { showPop, setShowPop, contentIndex, setContentIndex } = useContext(GlobalContext)
   const { panelTitle, pageOrdinal } = useContext(GlobalContext)
 
-  const contentIndex = 2; // temp
+  // const contentIndex = 2; // temp
 
   // setDirection(9);
 
@@ -47,6 +47,11 @@ const PanelLayout = ({children }) => { // , pageContext
       setShowPop(false);
     }
   }
+
+  const onChooseContent = (contentIndex) => {
+    // event.preventDefault();
+    setContentIndex(contentIndex);
+  }
   // const [showPop, setShowPop] = useState(false);
   
   // console.log('chosenPanel ordinal: ' + chosenPanel.node.ordinal)
@@ -63,7 +68,7 @@ const PanelLayout = ({children }) => { // , pageContext
   // `)
 
   // pageContext.node will only be defined for panels
-  // if (pageContext.node) {
+  if (pageContext.node) {
     return (
       // <GlobalContextProvider>
       <div className="wrapper"> 
@@ -128,11 +133,10 @@ const PanelLayout = ({children }) => { // , pageContext
               {contentIndex === 2
                 ? <span>{ panelTitle }</span>
                 : <a href="/"
-                    // onClick={e => { e.preventDefault(); onChooseContent(2);}}
+                    onClick={e => { e.preventDefault(); onChooseContent(2);}}
                   >
                     { panelTitle }
                   </a>
-              // exit? { exitComparator.toString()} 
               }
             </h1>
           </motion.div>
@@ -151,8 +155,8 @@ const PanelLayout = ({children }) => { // , pageContext
       </div>
       // </GlobalContextProvider>
     )
-  // }
-  // return <div>{children}</div>
+  }
+  return <div>{children}</div>
 }
 
 export default PanelLayout

@@ -69,7 +69,7 @@ const GlobalContextProvider = ({ children }) => {
     setPageOrdinal: value => {
       dispatch({ type: actions.SET_PAGE_ORDINAL, value })
     },    
-    pageOrdinal: state.contentIndex,
+    contentIndex: state.contentIndex,
     setContentIndex: value => {
       dispatch({ type: actions.SET_CONTENT_INDEX, value })
     },    

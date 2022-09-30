@@ -1,11 +1,15 @@
 import * as React from 'react'
+import { useContext } from 'react'
+import { GlobalContext } from "../context/GlobalContext"
 
-const Detail = ({pageContext, setContentIndex}) => {
+const Detail = ({pageContext}) => { // , setContentIndex
   const blurb = () => {
     return { __html:  pageContext.node.panelBlurb }
   }
   const introInfo =  pageContext.node.articleSet.edges[0].node;
   const foreInfo =  pageContext.node.articleSet.edges[1].node;
+  const { contentIndex, setContentIndex } = useContext(GlobalContext)
+  // showPop, setShowPop, 
 
   return (
     <div className="current-panel">

@@ -25,9 +25,15 @@ const Panel = ({pageContext}) => {
   
   // const direction = useContext(GetDirectionGlobalContext);
   // const { openMenu, setOpenMenu } = useContext(GlobalContext)
-  const [contentIndex, setContentIndex] = useState(2);
+
+
+
+  // const [contentIndex, setContentIndex] = useState(2);
+  const { contentIndex, setContentIndex } = useContext(GlobalContext)
   const { showPop, setShowPop } = useContext(GlobalContext)
   // , contentIndex, setContentIndex
+
+
   const { setPanelTitle, setPageOrdinal } = useContext(GlobalContext)
 
   // const [showPop, setShowPop] = useState(false);
@@ -88,7 +94,7 @@ const Panel = ({pageContext}) => {
         { contentIndex === 2 &&
           <Detail
             pageContext = {pageContext}
-            setContentIndex = {setContentIndex}
+            // setContentIndex = {setContentIndex}
             openPop = {openPop}
             // closePop via panelLayout
           />
@@ -96,7 +102,7 @@ const Panel = ({pageContext}) => {
         { (contentIndex === 0 || contentIndex === 1) &&
           <Article
             pageContext = {pageContext}
-            setContentIndex = {setContentIndex}
+            // setContentIndex = {setContentIndex}
             contentIndex = { contentIndex }
             openPop = {openPop}
             // closePop via panelLayout
