@@ -1,10 +1,11 @@
 import * as React from 'react'
 import { useState, useContext, useEffect } from 'react'
-import {Link} from 'gatsby'
+import {Link, navigate} from 'gatsby'
 // import PanelLayout from '../components/PanelLayout'
 // import { SetDirectionGlobalContext, GetDirectionGlobalContext, 
 //   GlobalProvider } from '../context/GlobalContextXX';
 import { GlobalContext } from "../context/GlobalContext"
+// import { useDrag } from '@use-gesture/react';
 import {motion, AnimatePresence } from 'framer-motion'
 import Detail from '../components/Detail'
 import Article from '../components/Article'
@@ -30,6 +31,7 @@ const Panel = ({pageContext}) => {
 
   // const [contentIndex, setContentIndex] = useState(2);
   const { contentIndex, linkDirection, setLinkDirection } = useContext(GlobalContext)
+  // getSlugFromIndex
   const { showPop, setShowPop } = useContext(GlobalContext)
   // , contentIndex, setContentIndex
 
@@ -57,6 +59,66 @@ const Panel = ({pageContext}) => {
     setShowPop(true);
   }
 
+  // const goNextPanel = useCallback(() => 
+  //   // navigate(`/panels/${getSlugFromIndex(chosenPanel.node.ordinal)}`, 
+  //   navigate(`/panels/apprenctice`) 
+  //   // {replace: true}), [navigate]);
+
+  // const goPrevPanel = useCallback(() => 
+  //   // navigate(`/panels/${getSlugFromIndex(chosenPanel.node.ordinal - 2)}`, 
+  //   navigate(`/panels/jay-strike`, 
+  //   {replace: true}), [navigate]);
+
+  //   const navigate = useNavigate();
+    const [numChanges, setNumChanges] = useState(0);
+
+  // const bind = useDrag(({ down, target, movement: [mx,my], cancel}) => { 
+  //   // console.log('panel mx, my: ' + mx +', ' + my + ' down: ' + down.toString());
+  //   if (down) {
+  //     // ignore
+  //     setNumChanges(0);
+  //   } else {
+
+  //     if (target.tagName === "A" || 
+  //       target.parentNode.className === "pop_item") {
+  //       // Don't slide panel when target was slide-show
+  //       // console.log('got to ignore ');
+  //     } else {
+  //       if (Math.abs(mx) > Math.abs(my)) { // pan only if move was horizontal
+  //         if (mx < -1) {
+  //           if (pageContext.node.ordinal < 11) {
+  //             // console.log('numChanges: ' + numChanges);
+  //             if (numChanges < 1) {
+  //               setLinkDirection(1);
+  //               // console.log('dir 1, mx: ' + mx);
+  //               // goNextPanel();
+  //               navigate(`/panels/jay-strike`) 
+  //               setNumChanges(numChanges + 1);
+  //               cancel();
+  //               return;
+
+  //             }
+  //           }
+  //         } else if (mx > 1) {
+  //           if (pageContext.node.ordinal > 1){
+  //             if (numChanges < 1) {
+
+  //               setLinkDirection(0);
+  //               // console.log('dir 0, mx: ' + mx)
+  //               // goPrevPanel();
+  //               navigate(`/panels/apprenctice`) 
+  //               setNumChanges(numChanges + 1);
+  //               cancel();
+  //               return;
+  //             }
+  //           }
+  //         }
+  //       }
+  //     }
+  
+  //   }
+  // })
+
   useEffect(() => {
     setPanelTitle(pageContext.node.panelTitle)
     setPageOrdinal(pageContext.node.ordinal)
@@ -64,19 +126,24 @@ const Panel = ({pageContext}) => {
 
   return (
     // <AnimatePresence initial={false}> 
-      <motion.div 
+      <>
+      {/* <motion.div 
         className="content-area"
         key={pageContext.node.slug}
+
         initial={{ x: linkDirection === 1 ? '100%' : '-100%'}}
+        
         animate={{ x: 0, opacity: 1, transition: {  duration: 0.7 } }}
         // exit={{x: linkDirection === 1 ? '-100%' : '100%', 
         //   transition: {  duration: 1 }
         // }}
         exit={{opacity: 0.2, transition: {duration: 0.5}}}
         // {...bind()}
-      >
+      > */}
 
-        <div className="prev-panel">
+        <div className="prev-panel"
+        // {...bind}
+        >
           {prevPanelSlug &&
             <img src={`https://dev.digitalgizmo.com/mural-assets/panels/panelpics/${pageContext.node.slug}-prev.jpg`} 
             alt={`Previous panel is ${prevPanelSlug}`} />
@@ -125,7 +192,7 @@ const Panel = ({pageContext}) => {
             </Link>
           }
         </div>
-      </motion.div>
+      </>
     // </AnimatePresence>
   )
 }

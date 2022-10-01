@@ -1,12 +1,13 @@
 import * as React from 'react'
 import { useState, useContext } from 'react'
-import { Link } from 'gatsby' // , useStaticQuery, graphql
+import { Link, navigate } from 'gatsby' // , useStaticQuery, graphql
 // import { GlobalProvider, SetDirectionGlobalContext, 
 //   GetDirectionGlobalContext } from '../context/GlobalContextXX';
 // import GlobalContextProvider from "../context/GlobalContext"
 
 import { GlobalContext } from "../context/GlobalContext"
 import {motion, AnimatePresence } from 'framer-motion'
+// import { useDrag } from '@use-gesture/react';
 
 import JSONData from '../../content/all-panels.json'
 import Pop from './pops/pop'
@@ -24,7 +25,7 @@ const PanelLayout = ({children, pageContext }) => { // , pageContext
 
   // const { setDirection } = useContext(SetDirectionGlobalContext);
   const { showPop, setShowPop, contentIndex, 
-    setContentIndex, setLinkDirection } = useContext(GlobalContext)
+    setContentIndex, linkDirection, setLinkDirection } = useContext(GlobalContext)
   const { panelTitle, pageOrdinal } = useContext(GlobalContext)
 
   // const contentIndex = 2; // temp
@@ -67,6 +68,68 @@ const PanelLayout = ({children, pageContext }) => { // , pageContext
   //     },
   //   }  
   // `)
+
+  const [numChanges, setNumChanges] = useState(0);
+
+  // const bind = useDrag(({ down, target, movement: [mx,my], cancel}) => { 
+  //   console.log('panel mx, my: ' + mx +', ' + my + ' down: ' + down.toString());
+  //   if (down) {
+  //     // ignore
+  //     setNumChanges(0);
+  //   } else {
+
+  //     if (target.tagName === "A" || 
+  //       target.parentNode.className === "pop_item") {
+  //       // Don't slide panel when target was slide-show
+  //       // console.log('got to ignore ');
+  //     } else {
+  //       if (Math.abs(mx) > Math.abs(my)) { // pan only if move was horizontal
+  //         if (mx < -1) {
+  //           if (pageContext.node.ordinal < 11) {
+  //             // console.log('numChanges: ' + numChanges);
+  //             if (numChanges < 1) {
+  //               setLinkDirection(1);
+  //               // console.log('dir 1, mx: ' + mx);
+  //               // goNextPanel();
+  //               navigate(`/panels/jay-strike`) 
+  //               setNumChanges(numChanges + 1);
+  //               cancel();
+  //               return;
+
+  //             }
+  //           }
+  //         } else if (mx > 1) {
+  //           if (pageContext.node.ordinal > 1){
+  //             if (numChanges < 1) {
+
+  //               setLinkDirection(0);
+  //               // console.log('dir 0, mx: ' + mx)
+  //               // goPrevPanel();
+  //               navigate(`/panels/apprenctice`) 
+  //               setNumChanges(numChanges + 1);
+  //               cancel();
+  //               return;
+  //             }
+  //           }
+  //         }
+  //       }
+  //     }
+  
+  //   }
+  // })
+
+
+  // Workaround bcz inital={fakse} isn't working in AnimatePresence
+  const variant = {
+    enter: {
+       x: linkDirection === 1 ? '100%' : '-100%'
+    },
+  };
+  const noInitVariant = {
+    enter: {
+       x: 0
+    },
+  };
 
   // pageContext.node will only be defined for panels
   if (pageContext.node) {
@@ -114,13 +177,6 @@ const PanelLayout = ({children, pageContext }) => { // , pageContext
           }
         </div> {/* panel-nav */}
 
-        {/* <div
-          className="panel-title"
-        >
-          <h1>{panelTitle}</h1>
-        </div> */}
-
-
         <AnimatePresence initial={false}>
           <motion.div 
             className="panel-title"
@@ -131,6 +187,7 @@ const PanelLayout = ({children, pageContext }) => { // , pageContext
             animate={{ opacity: 1}}
             exit={{ opacity: 0.2}}
             transition={{duration: 0.7}}
+            // {...bind()}
           >
             <h1>
               {contentIndex === 2
@@ -145,9 +202,23 @@ const PanelLayout = ({children, pageContext }) => { // , pageContext
           </motion.div>
         </AnimatePresence>
 
+        <motion.div 
+          className="content-area"
+          key={panelTitle}
+          variants={ linkDirection < 2 ? variant : noInitVariant}
+          // initial={{ x: linkDirection === 1 ? '100%' : '-100%'}}
+          initial={"enter"}
+          animate={{ x: 0, opacity: 1, transition: {  duration: 0.7 } }}
+          // exit={{x: linkDirection === 1 ? '-100%' : '100%', 
+          //   transition: {  duration: 1 }
+          // }}
+          exit={{opacity: 0.2, transition: {duration: 0.1}}}
+          // {...bind()}
+        >
 
-          
-        {children}
+          {children}
+
+        </motion.div>
 
         { showPop &&
           <Pop

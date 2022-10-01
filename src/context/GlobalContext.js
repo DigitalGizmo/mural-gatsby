@@ -9,7 +9,7 @@ const initialState = {
   panelTitle: "to be dynamic",
   pageOrdinal: 1,
   contentIndex: 2,
-  linkDirection: 1,
+  linkDirection: 2,
 }
 
 const actions = {
