@@ -2,17 +2,12 @@ import * as React from 'react'
 import { useContext } from 'react'
 import { GlobalContext } from "../context/GlobalContext"
 
-const Article = ({pageContext,
-  openPop}) => {
-    // , contentIndex, setContentIndex
-    const { contentIndex, setContentIndex } = useContext(GlobalContext)
-    // showPop, setShowPop, 
+const Article = ({pageContext, openPop}) => {
+  const { contentIndex, setContentIndex } = useContext(GlobalContext)
   const articleInfo =  pageContext.node.articleSet.edges[contentIndex].node;
   const introTitle =  pageContext.node.articleSet.edges[0].node.title;
   const foreTitle =  pageContext.node.articleSet.edges[1].node.title;
   const panelNum = pageContext.node.ordinal;
-  // const articleTypes = ["intro", "fore"];
-
 
   const narrative = () => {
     return { __html:  articleInfo.narrative }

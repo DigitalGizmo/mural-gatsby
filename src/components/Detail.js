@@ -4,25 +4,18 @@ import { GlobalContext } from "../context/GlobalContext"
 
 // import {motion, AnimatePresence } from 'framer-motion'
 
-const Detail = ({pageContext}) => { // , setContentIndex
+const Detail = ({pageContext, openPop}) => { // , setContentIndex
   const blurb = () => {
     return { __html:  pageContext.node.panelBlurb }
   }
   const introInfo =  pageContext.node.articleSet.edges[0].node;
   const foreInfo =  pageContext.node.articleSet.edges[1].node;
-  const { contentIndex, setContentIndex } = useContext(GlobalContext)
-  // showPop, setShowPop, 
-
-  // function onPan(event, info) {
-  //   console.log(info.offset.x, info.offset.y)
-  // }
-  
+  const hotspots =  pageContext.node.hotspotSet.edges;
+  const panelNum = pageContext.node.ordinal;
+  const { setContentIndex } = useContext(GlobalContext)
 
   return (
-    <div 
-      className="current-panel"
-      // onPanEnd={onPan}
-    >
+    <div className="current-panel">
       <article>
       <h3>About This Panel</h3>
         <div dangerouslySetInnerHTML={blurb()} />
@@ -36,6 +29,23 @@ const Detail = ({pageContext}) => { // , setContentIndex
           <image id="document" x="0" y="0" 
           href={`https://dev.digitalgizmo.com/mural-assets/panels/panelpics/${pageContext.node.slug}.jpg`} 
           width="800" height="1800" />
+
+
+          {hotspots.map(hotspot => {
+            return (
+              <a className="pop_item" key={hotspot.node.slug}   
+                href='/' onClick={e => { e.preventDefault(); 
+                openPop({popType: 'hotspot', panelNum: panelNum,
+                  hotspotNode: hotspot.node})}}>
+                <circle className="hotspot" 
+                  cx={hotspot.node.xPosition}
+                  cy={hotspot.node.yPosition} 
+                  r="72"
+                />
+              </a>
+            )
+          })}
+
 
         </svg>
       </div> 

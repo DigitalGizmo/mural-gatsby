@@ -10,6 +10,7 @@ const initialState = {
   pageOrdinal: 1,
   contentIndex: 2,
   linkDirection: 2,
+  popData: null,
 }
 
 const actions = {
@@ -19,13 +20,11 @@ const actions = {
   SET_PAGE_ORDINAL: "SET_PAGE_ORDINAL",
   SET_CONTENT_INDEX: "SET_CONTENT_INDEX",
   SET_LINK_DIRECTION: "SET_LINK_DIRECTION",
-  // : "",
+  SET_POP_DATA: "SET_POP_DATA",
 }
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case actions.SET_MENU:
-      return { ...state, openMenu: action.value }
     case actions.SET_SHOW_POP:
       return { ...state, showPop: action.value }
     case actions.SET_PANEL_SLUG:
@@ -38,6 +37,8 @@ const reducer = (state, action) => {
       return { ...state, contentIndex: action.value }
     case actions.SET_LINK_DIRECTION:
       return { ...state, linkDirection: action.value }
+    case actions.SET_POP_DATA:
+      return { ...state, popData: action.value }
     // case actions.:
     //   return { ...state, : action.value }
     default:
@@ -62,10 +63,6 @@ const GlobalContextProvider = ({ children }) => {
   // into our ContextProvider.
 
   const value = {
-    openMenu: state.openMenu,
-    setOpenMenu: value => {
-      dispatch({ type: actions.SET_MENU, value })
-    },
     showPop: state.showPop,
     setShowPop: value => {
       dispatch({ type: actions.SET_SHOW_POP, value })
@@ -89,6 +86,10 @@ const GlobalContextProvider = ({ children }) => {
     linkDirection: state.linkDirection,
     setLinkDirection: value => {
       dispatch({ type: actions.SET_LINK_DIRECTION, value })
+    },    
+    popData: state.popData,
+    setPopData: value => {
+      dispatch({ type: actions.SET_POP_DATA, value })
     },    
     // : state.,
     // : value => {

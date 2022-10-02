@@ -1,14 +1,9 @@
 import * as React from 'react'
 import { useState, useContext, useEffect } from 'react'
 import { Link, navigate } from 'gatsby' // , useStaticQuery, graphql
-// import { GlobalProvider, SetDirectionGlobalContext, 
-//   GetDirectionGlobalContext } from '../context/GlobalContextXX';
-// import GlobalContextProvider from "../context/GlobalContext"
-
 import { GlobalContext } from "../context/GlobalContext"
 import {motion, AnimatePresence } from 'framer-motion'
 // import { useDrag } from '@use-gesture/react';
-
 import JSONData from '../../content/all-panels.json'
 import Pop from './pops/pop'
 import '../index.css'
@@ -16,15 +11,7 @@ import '../index.css'
 // const PanelLayout = ({ pageTitle, pageOrdinal, showPop, 
 //     popData, children}) => {
 const PanelLayout = ({children, pageContext }) => { // , pageContext
-
-  // temp constants
-  // const showPop = false
-  const popData = {notin: 'nothin'}
-  // const pageOrdinal = 1
-  // const pageTitle = 'temp page title'
-
-  // const { setDirection } = useContext(SetDirectionGlobalContext);
-  const {  contentIndex, showPop, setShowPop,
+  const {  contentIndex, showPop, setShowPop, popData,
     setContentIndex, linkDirection, setLinkDirection } = useContext(GlobalContext)
   const { panelSlug, panelTitle, pageOrdinal } = useContext(GlobalContext)
 
@@ -65,9 +52,6 @@ const PanelLayout = ({children, pageContext }) => { // , pageContext
     setContentIndex(contentIndex);
   }
   
-  // console.log('chosenPanel ordinal: ' + chosenPanel.node.ordinal)
-  // console.log('children: ' + children.pageContext)
-
   // const data = useStaticQuery(graphql`
   //   query {
   //     site {
@@ -77,8 +61,6 @@ const PanelLayout = ({children, pageContext }) => { // , pageContext
   //     },
   //   }  
   // `)
-
-  const [numChanges, setNumChanges] = useState(0);
 
   function onPanStart(event, info) {
     console.log('panStart delta: ' + info.delta.x, info.delta.y +
@@ -93,39 +75,24 @@ const PanelLayout = ({children, pageContext }) => { // , pageContext
         if (info.delta.x < -1) {
           if (pageContext.node.ordinal < 11) { // next
             // console.log('numChanges: ' + numChanges);
-            // if (numChanges < 1) {
-              setLinkDirection(1);
-              // console.log('dir 1, info.delta.x: ' + info.delta.x);
-              // goNextPanel();
-              // navigate(`/panels/jay-strike`);
-              navigate(`/panels/${slugs[pageContext.node.ordinal]}`);
-              // setNumChanges(numChanges + 1)
-              return;
-
-            // }
+            setLinkDirection(1);
+            // console.log('dir 1, info.delta.x: ' + info.delta.x);
+            navigate(`/panels/${slugs[pageContext.node.ordinal]}`);
+            return;
           }
         } else if (info.delta.x > 1) { // prev
           if (pageContext.node.ordinal > 1){
-            // if (numChanges < 1) {
-
-              setLinkDirection(0);
-              // console.log('dir 0, info.delta.x: ' + info.delta.x)
-              // goPrevPanel();
-              // navigate(`/panels/apprenticeship`) 
-              navigate(`/panels/${slugs[pageContext.node.ordinal - 2]}`);
-              // setNumChanges(numChanges + 1);
-              return;
-            // }
+            setLinkDirection(0);
+            // console.log('dir 0, info.delta.x: ' + info.delta.x)
+            navigate(`/panels/${slugs[pageContext.node.ordinal - 2]}`);
+            return;
           }
         }
       }
     }
-
-    // }
   }
 
-
-  // Workaround bcz inital={fakse} isn't working in AnimatePresence
+  // Workaround bcz inital={false} isn't working in AnimatePresence
   const variant = {
     enter: {
        x: linkDirection === 1 ? '100%' : '-100%'
@@ -156,7 +123,6 @@ const PanelLayout = ({children, pageContext }) => { // , pageContext
   // pageContext.node will only be defined for panels
   if (pageContext.node) {
     return (
-      // <GlobalContextProvider>
       <div className="wrapper"> 
         <div className="msm-link">
           <a href="https://mainestatemuseum.org/exhibit/maine-labor-mural/">
@@ -168,10 +134,6 @@ const PanelLayout = ({children, pageContext }) => { // , pageContext
         <div className="site-title">
           <Link to='/'>
             <h3>Maine Labor Mural</h3>
-            {/* debug: ordinal {pageOrdinal} */}
-            {/* slug {pageContext.node.slug} */}
-            {/* debug: showPop {showPop.toString()} */}
-            {/* Debug:  {data.allFile.nodes[0].name} */}
           </Link>
         </div>
 
@@ -209,7 +171,6 @@ const PanelLayout = ({children, pageContext }) => { // , pageContext
             animate={{ opacity: 1}}
             exit={{ opacity: 0.2}}
             transition={{duration: 0.7}}
-            // {...bind()}
           >
             <h1>
               {contentIndex === 2
@@ -250,7 +211,6 @@ const PanelLayout = ({children, pageContext }) => { // , pageContext
           />
         }
       </div>
-      // </GlobalContextProvider>
     )
   }
   return <div>{children}</div>
