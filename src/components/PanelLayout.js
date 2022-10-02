@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { useState, useContext } from 'react'
+import { useState, useContext, useEffect } from 'react'
 import { Link, navigate } from 'gatsby' // , useStaticQuery, graphql
 // import { GlobalProvider, SetDirectionGlobalContext, 
 //   GetDirectionGlobalContext } from '../context/GlobalContextXX';
@@ -24,18 +24,28 @@ const PanelLayout = ({children, pageContext }) => { // , pageContext
   // const pageTitle = 'temp page title'
 
   // const { setDirection } = useContext(SetDirectionGlobalContext);
-  const { showPop, setShowPop, contentIndex, 
+  const {  contentIndex, showPop, setShowPop,
     setContentIndex, linkDirection, setLinkDirection } = useContext(GlobalContext)
-  const { panelTitle, pageOrdinal } = useContext(GlobalContext)
-
-  // const contentIndex = 2; // temp
-
-  // setDirection(9);
+  const { panelSlug, panelTitle, pageOrdinal } = useContext(GlobalContext)
 
   // const [linkDirection, setLinkDirection] = useState(1);
   const [navLinkIndexes, setNavLinkIndexes] = useState(
     [1,1,1,1,1,1,1,1,1,1,1]
   )
+  // Hack to get panel index (hence num) without live data
+  const slugs = ['apprenticeship', 'child-labor', 'women-textiles', 'secret-ballot', 
+  'labor-day', 'logging', 'shoe-strike', 'reform', 'Rosie', 'jay-strike', 'labor-future'];
+
+  const calcLinkIndexes = (panelIndex) => { // currPanelIndex
+    // console.log('we are on panel index: ' + panelIndex);
+    let newLinkIndexes = [];
+    for (let i = 0; i < 11; i++){
+      i < panelIndex
+      ? newLinkIndexes.push(0)
+      : newLinkIndexes.push(1);
+    }
+    setNavLinkIndexes(newLinkIndexes);
+  }
 
   // Prevent click on (non-link) FullEntry from closing window
   const closePop = (event) => {
@@ -54,7 +64,6 @@ const PanelLayout = ({children, pageContext }) => { // , pageContext
     // event.preventDefault();
     setContentIndex(contentIndex);
   }
-  // const [showPop, setShowPop] = useState(false);
   
   // console.log('chosenPanel ordinal: ' + chosenPanel.node.ordinal)
   // console.log('children: ' + children.pageContext)
@@ -71,52 +80,49 @@ const PanelLayout = ({children, pageContext }) => { // , pageContext
 
   const [numChanges, setNumChanges] = useState(0);
 
-  // const bind = useDrag(({ down, target, movement: [mx,my], cancel}) => { 
-  //   console.log('panel mx, my: ' + mx +', ' + my + ' down: ' + down.toString());
-  //   if (down) {
-  //     // ignore
-  //     setNumChanges(0);
-  //   } else {
+  function onPanStart(event, info) {
+    console.log('panStart delta: ' + info.delta.x, info.delta.y +
+    ' offset: ' + info.offset.x, info.offset.y)
 
-  //     if (target.tagName === "A" || 
-  //       target.parentNode.className === "pop_item") {
-  //       // Don't slide panel when target was slide-show
-  //       // console.log('got to ignore ');
-  //     } else {
-  //       if (Math.abs(mx) > Math.abs(my)) { // pan only if move was horizontal
-  //         if (mx < -1) {
-  //           if (pageContext.node.ordinal < 11) {
-  //             // console.log('numChanges: ' + numChanges);
-  //             if (numChanges < 1) {
-  //               setLinkDirection(1);
-  //               // console.log('dir 1, mx: ' + mx);
-  //               // goNextPanel();
-  //               navigate(`/panels/jay-strike`) 
-  //               setNumChanges(numChanges + 1);
-  //               cancel();
-  //               return;
+    if (event.target.tagName === "A" || 
+      event.target.parentNode.className === "pop_item") {
+      // Don't slide panel when target was slide-show
+      // console.log('got to ignore ');
+    } else {
+      if (Math.abs(info.delta.x) > Math.abs(info.delta.y)) { // pan only if move was horizontal
+        if (info.delta.x < -1) {
+          if (pageContext.node.ordinal < 11) { // next
+            // console.log('numChanges: ' + numChanges);
+            // if (numChanges < 1) {
+              setLinkDirection(1);
+              // console.log('dir 1, info.delta.x: ' + info.delta.x);
+              // goNextPanel();
+              // navigate(`/panels/jay-strike`);
+              navigate(`/panels/${slugs[pageContext.node.ordinal]}`);
+              // setNumChanges(numChanges + 1)
+              return;
 
-  //             }
-  //           }
-  //         } else if (mx > 1) {
-  //           if (pageContext.node.ordinal > 1){
-  //             if (numChanges < 1) {
+            // }
+          }
+        } else if (info.delta.x > 1) { // prev
+          if (pageContext.node.ordinal > 1){
+            // if (numChanges < 1) {
 
-  //               setLinkDirection(0);
-  //               // console.log('dir 0, mx: ' + mx)
-  //               // goPrevPanel();
-  //               navigate(`/panels/apprenctice`) 
-  //               setNumChanges(numChanges + 1);
-  //               cancel();
-  //               return;
-  //             }
-  //           }
-  //         }
-  //       }
-  //     }
-  
-  //   }
-  // })
+              setLinkDirection(0);
+              // console.log('dir 0, info.delta.x: ' + info.delta.x)
+              // goPrevPanel();
+              // navigate(`/panels/apprenticeship`) 
+              navigate(`/panels/${slugs[pageContext.node.ordinal - 2]}`);
+              // setNumChanges(numChanges + 1);
+              return;
+            // }
+          }
+        }
+      }
+    }
+
+    // }
+  }
 
 
   // Workaround bcz inital={fakse} isn't working in AnimatePresence
@@ -130,6 +136,22 @@ const PanelLayout = ({children, pageContext }) => { // , pageContext
        x: 0
     },
   };
+
+  // Need to set back to Detail on new page
+  // And we should use this opportunity to set direction
+  // in mini nav links based on current panel
+  useEffect(() => {
+    setContentIndex(2);
+    // setCurrPanelIndex(slugs.indexOf(params.panelSlug));
+    calcLinkIndexes(slugs.indexOf(panelSlug));
+
+  }, [panelSlug])
+
+  // function onPanEnd(event, info) {
+  //   console.log('---- End delta: ' + info.delta.x, info.delta.y +
+  //   ' offset: ' + info.offset.x, info.offset.y)
+  // }
+  
 
   // pageContext.node will only be defined for panels
   if (pageContext.node) {
@@ -214,6 +236,7 @@ const PanelLayout = ({children, pageContext }) => { // , pageContext
           // }}
           exit={{opacity: 0.2, transition: {duration: 0.1}}}
           // {...bind()}
+          onPanStart={onPanStart}
         >
 
           {children}

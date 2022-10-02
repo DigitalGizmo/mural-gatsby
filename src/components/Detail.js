@@ -2,6 +2,8 @@ import * as React from 'react'
 import { useContext } from 'react'
 import { GlobalContext } from "../context/GlobalContext"
 
+// import {motion, AnimatePresence } from 'framer-motion'
+
 const Detail = ({pageContext}) => { // , setContentIndex
   const blurb = () => {
     return { __html:  pageContext.node.panelBlurb }
@@ -11,8 +13,16 @@ const Detail = ({pageContext}) => { // , setContentIndex
   const { contentIndex, setContentIndex } = useContext(GlobalContext)
   // showPop, setShowPop, 
 
+  // function onPan(event, info) {
+  //   console.log(info.offset.x, info.offset.y)
+  // }
+  
+
   return (
-    <div className="current-panel">
+    <div 
+      className="current-panel"
+      // onPanEnd={onPan}
+    >
       <article>
       <h3>About This Panel</h3>
         <div dangerouslySetInnerHTML={blurb()} />

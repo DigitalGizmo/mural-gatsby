@@ -4,8 +4,8 @@ import React, { createContext } from "react"
 // in our reducer
 
 const initialState = {
-  openMenu: false,
   showPop: false,
+  panelSlug: "apprenticeship",
   panelTitle: "to be dynamic",
   pageOrdinal: 1,
   contentIndex: 2,
@@ -13,8 +13,8 @@ const initialState = {
 }
 
 const actions = {
-  SET_MENU: "SET_MENU",
   SET_SHOW_POP: "SET_SHOW_POP",
+  SET_PANEL_SLUG: "SET_PANEL_SLUG",
   SET_PANEL_TITLE: "SET_PANEL_TITLE",
   SET_PAGE_ORDINAL: "SET_PAGE_ORDINAL",
   SET_CONTENT_INDEX: "SET_CONTENT_INDEX",
@@ -28,6 +28,8 @@ const reducer = (state, action) => {
       return { ...state, openMenu: action.value }
     case actions.SET_SHOW_POP:
       return { ...state, showPop: action.value }
+    case actions.SET_PANEL_SLUG:
+      return { ...state, panelSlug: action.value }
     case actions.SET_PANEL_TITLE:
       return { ...state, panelTitle: action.value }
     case actions.SET_PAGE_ORDINAL:
@@ -47,7 +49,7 @@ const reducer = (state, action) => {
 // "GlobalContextProvider" so that we can export it
 // and use it in our pages
 
-const GlobalContext = createContext()
+const GlobalContext = createContext(initialState)
 
 const GlobalContextProvider = ({ children }) => {
   // Within our overarching component, we now create a React-Reducer with the data that
@@ -67,6 +69,10 @@ const GlobalContextProvider = ({ children }) => {
     showPop: state.showPop,
     setShowPop: value => {
       dispatch({ type: actions.SET_SHOW_POP, value })
+    },    
+    panelSlug: state.panelSlug,
+    setPanelSlug: value => {
+      dispatch({ type: actions.SET_PANEL_SLUG, value })
     },    
     panelTitle: state.panelTitle,
     setPanelTitle: value => {

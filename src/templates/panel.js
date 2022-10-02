@@ -36,7 +36,7 @@ const Panel = ({pageContext}) => {
   // , contentIndex, setContentIndex
 
 
-  const { setPanelTitle, setPageOrdinal } = useContext(GlobalContext)
+  const { setPanelSlug, setPanelTitle, setPageOrdinal } = useContext(GlobalContext)
 
   // const [showPop, setShowPop] = useState(false);
   const [popData, setPopData] = useState();  
@@ -120,6 +120,7 @@ const Panel = ({pageContext}) => {
   // })
 
   useEffect(() => {
+    setPanelSlug(pageContext.node.slug)
     setPanelTitle(pageContext.node.panelTitle)
     setPageOrdinal(pageContext.node.ordinal)
   }, [])

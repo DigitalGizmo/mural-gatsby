@@ -6,6 +6,7 @@ body {
   font-weight: 300;
   line-height: 1.6;
   margin: 0;
+  touch-action: pan-y;
 }
 
 h1,
@@ -124,6 +125,21 @@ cite:before {
 /* ///////////////////// */
 /* SHARED LAYOUT ELMENTS */
 /* ///////////////////// */
+
+/* Gatsby adds something outside of wrapper */
+#gatsby-focus-wrapper {
+  left: 0;
+  touch-action: pan-y;
+}
+#___gatsby {
+  left: 0;
+  touch-action: pan-y;
+}
+
+AnimatePresence {
+  touch-action: pan-y;  
+}
+/* none of the above, added by Don, help. Also tried body */
 
 /*small display*/
 .wrapper {
