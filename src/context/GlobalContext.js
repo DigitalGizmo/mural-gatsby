@@ -6,7 +6,7 @@ import React, { createContext } from "react"
 const initialState = {
   showPop: false,
   panelSlug: "apprenticeship",
-  panelTitle: "to be dynamic",
+  panelTitle: "...",
   pageOrdinal: 1,
   contentIndex: 2,
   linkDirection: 2,

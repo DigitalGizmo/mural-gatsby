@@ -296,6 +296,7 @@ a.more-link {
 .current-panel article {
   grid-area: text;
   padding: 1em;
+  touch-action: pan-y;
 }
 
 .current-panel .panel-image svg {
@@ -394,25 +395,30 @@ div.current-panel-article nav.tabs ul li a, div.current-panel-article nav.tabs u
 
 .current-panel-article article.article-body {
   grid-area: article-body;
+  touch-action: pan-y;
 }
 
 .current-panel-article div.panel-image {
   grid-area: panel-image;
+  touch-action: pan-y;
 }
 
 .current-panel-article nav.learn-more {
   grid-area: learn-more;
   padding: 0 1em;
+  touch-action: pan-y;
 }
 
 .current-panel-article div.panel-image img {
   max-width: 100%;
   pointer-events: none;  
+  touch-action: pan-y;
 }
 
 .current-panel .tabs {
   grid-area: article-buttons;
   padding: 1em;
+  touch-action: pan-y;
 }
 
 article.article-body {
@@ -420,6 +426,7 @@ article.article-body {
   height: 60vh;
   overflow-y: scroll;
   padding: .15em .5em .25em .5em;
+  touch-action: pan-y;
 }
 
 .learn-more ul li {
