@@ -126,32 +126,16 @@ cite:before {
 /* SHARED LAYOUT ELMENTS */
 /* ///////////////////// */
 
-/* Gatsby adds something outside of wrapper */
-#gatsby-focus-wrapper {
-  left: 0;
-  touch-action: pan-y;
-}
-#___gatsby {
-  left: 0;
-  touch-action: pan-y;
-}
-
-AnimatePresence {
-  touch-action: pan-y;  
-}
-/* none of the above, added by Don, help. Also tried body */
-
 /*small display*/
 .wrapper {
   left: 0;
-  /* position: fixed; */
   display: grid;
-  touch-action: pan-y;
   grid-template-areas:
-   "msm-link site-title"
-   "panel-nav panel-nav"
-   "panel-title panel-title"
-   "content-area content-area";
+  "msm-link site-title"
+  "panel-nav panel-nav"
+  "panel-title panel-title"
+  "content-area content-area";
+  touch-action: pan-y;
 }
 
 /*large display*/
@@ -297,6 +281,7 @@ a.more-link {
     "panel-image"
     "article-buttons";
   overflow: auto;
+  touch-action: pan-y;
 }
 
 /*large display*/
