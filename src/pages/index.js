@@ -168,6 +168,11 @@ const IndexPage = () => {
   )
 }
 
-export const Head = () => <Seo title='Home' />
+export const Head = () => (
+  <>
+    <Seo title='Home' />
+    <link rel="stylesheet" href="https://use.typekit.net/jmk5ehg.css"/>
+  </>
+)
 export default IndexPage
 

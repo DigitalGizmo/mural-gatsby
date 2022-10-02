@@ -90,7 +90,7 @@ const Panel = ({pageContext}) => {
 export const Head = ({pageContext}) => (
   <>
     <Seo title={pageContext.node.panelTitle} />
-    <meta name="description" content="Your description" />
+    <link rel="stylesheet" href="https://use.typekit.net/jmk5ehg.css"/>
   </>
 )
 
