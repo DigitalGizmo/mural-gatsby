@@ -22,7 +22,7 @@ const Pop = ({popData, closePop}) => {
   }
   
   return (
-    <div id="slimpop-overlay" onClick={closePop}> {/* className="lightbox"  onClick={closeFullEntry} */}
+    <div id="slimpop-overlay" onClick={closePop}> 
       <div id="slimpop-container">
         <div className="slimpop-wrapper">
 
