@@ -24,21 +24,13 @@ const Pop = ({popData, closePop}) => {
   return (
     <div id="slimpop-overlay" onClick={closePop}> {/* className="lightbox"  onClick={closeFullEntry} */}
       <div id="slimpop-container">
-
         <div className="slimpop-wrapper">
 
-          <button className="pop-close" 
-            onClick={closePop}
-            id="close-link"
-            >
-            {/* <a id="close-link" 
-              href="/panels/apprenticeship" 
-              // onClick={closePop}
-              // onClick={e => { e.preventDefault(); closePop;}}
-            > */}
+          <p className="pop-close">
+            <a id="close-link" href="/" onClick={closePop}>
               Close
-            {/* </a> */}
-          </button>
+            </a>
+          </p>
             
           <h4 className="subhead">{ subtitle }</h4>
           <h1>{ title }</h1>
