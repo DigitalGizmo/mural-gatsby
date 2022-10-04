@@ -266,7 +266,7 @@ a.more-link {
   background-color: #fff;
   display: grid;
   grid-area: content-area;
-  grid-template-columns: 8% auto 8%;  
+  grid-template-columns: 8% 84% 8%;  
   touch-action: pan-y;
   grid-template-areas: 
     "prev-panel current-panel next-panel";
@@ -336,7 +336,7 @@ a.more-link {
     grid-template-areas: 
       "tabs tabs tabs"
       "article-body panel-image learn-more";
-    grid-template-columns: 30% auto 30%;
+    grid-template-columns: 35% 35% 20%;
     grid-template-rows: 60px auto;
   }
 }
@@ -372,9 +372,18 @@ nav.tabs ul li a:link, nav.tabs ul li a:visited {
   margin: 4.5%;
 }
 
+/* for small displays */
 div.current-panel-article nav.tabs ul li {
-  width: 300px;
+  width: 90%;
   margin: 0.5em;
+}
+
+/* for large displays */
+@media only screen and (min-width: 800px)   {
+  div.current-panel-article nav.tabs ul li {
+    width: 40%;
+    margin: 0.5em;
+  }
 }
 
 div.current-panel-article nav.tabs ul li a, div.current-panel-article nav.tabs ul li span {
@@ -405,7 +414,6 @@ div.current-panel-article nav.tabs ul li a, div.current-panel-article nav.tabs u
 
 .current-panel-article nav.learn-more {
   grid-area: learn-more;
-  padding: 0 1em;
   touch-action: pan-y;
 }
 
@@ -443,7 +451,14 @@ article.article-body {
   border: 1px solid #999;
   display: block;
   margin-bottom: .25em;
-  max-width: 200px;
+  max-width: 100px;
+}
+
+/* for large displays */
+@media only screen and (min-width: 800px)   {
+  .learn-more ul li img {
+    max-width: 160px;
+  }
 }
 
 .learn-more ul li a {
@@ -455,9 +470,11 @@ article.article-body {
 /* ////////////////// */
 .slimpop-wrapper {
   background-color: #fff;
-  position: relative;
-  padding: 3%;
+  height: 100%;
   margin: auto;
+  overflow: auto;
+  padding: 3%;
+  position: relative;
 }
 
 .slimpop-wrapper h1 {
@@ -506,7 +523,7 @@ article.article-body {
 @media only screen and (min-width: 800px)   {
   #slimpop-container {
     margin: 3% auto;
-    max-height: 85%;
+    height: 85%;
     overflow-y: auto;
     width: 75%;
     z-index: 100;
@@ -532,7 +549,7 @@ article.article-body {
 .pop-img p {
   color: #999;
   font-size: 0.75em !important;
-  margin-top: 0;
+  margin: 0px 1em 0px 1em;
 }
 
 audio.voices {
@@ -592,7 +609,6 @@ img.slide-arrow {
   fill: #b35900;
 }
 
-/* added by Don for slides */
 .slide-container {
   background-color: #fff;
   left: 0;
