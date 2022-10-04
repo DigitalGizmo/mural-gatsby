@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
+// , useRef
 import {motion, AnimatePresence } from 'framer-motion';
-// import { useDrag } from '@use-gesture/react';
 
 const Slide = ({popData}) => {
   const [slideIndex, setSlideIndex] = useState(0);
   const [currSlideIndex, setCurrSlideIndex] = useState(0);
   const [direction, setDirection] = useState(1); 
+  // const [ref] = useState(null)
   
   const onPanStart = (event, info) => {
       event.stopPropagation()
@@ -29,6 +30,21 @@ const Slide = ({popData}) => {
     }
   }
 
+  // const handleKeyDown = event => {
+  //   console.log('User pressed: ', event.key);
+  //   if (event.key === 'ArrowRight') nextSlide();
+  //   if (event.key === 'ArrowLeft') prevSlide();
+  // };
+
+  // Focus this div so it will listen to key press
+  // const ref = useRef(null);
+
+  // useEffect(() => {
+  //   ref.current.focus();
+  // ref = useRef(null);
+  // ref.current.focus();
+  // }, []);  
+
   // Have to useEffect because of closure on setState
   // https://stackoverflow.com/questions/54069253/usestate-set-method-not-reflecting-change-immediately
   useEffect(() => {
@@ -48,7 +64,9 @@ const Slide = ({popData}) => {
         }}
         // exit={{opacity: 0.2, transition: {duration: 0.5}}}
         onPanStart={onPanStart}
-        // {...bindSlide()}     
+        // {...bindSlide()}  
+        // ref={ref} tabIndex={-1}   
+        // onKeyDown={handleKeyDown}
       >
         <div className="pop-img">
 
@@ -60,14 +78,10 @@ const Slide = ({popData}) => {
             }}            
           >
             { slideIndex > 0 
-              ? <a href="/" 
-                onClick={e => { e.preventDefault(); 
-                  console.log('clicked prev');
-                  prevSlide();}}
-                >
+              ? <button onClick={ prevSlide }>
                   <img src="https://dev.digitalgizmo.com/mural-assets/panels/panelpics/arrow-prev.png" 
                   alt="previous slide" className="slide-arrow"/>
-                </a> 
+                </button> 
               : <span className="no-more"><img src="https://dev.digitalgizmo.com/mural-assets/panels/panelpics/arrow-gray-prev.png" 
                     alt="no more slides" className="slide-arrow"/></span>
             }
@@ -87,14 +101,10 @@ const Slide = ({popData}) => {
             }}
           >
             { slideIndex < (popData.learnmoreNode.slideSet.edges.length -1)
-              ? <a href="/" 
-                onClick={e => { e.preventDefault();
-                  console.log('clicked next');
-                  nextSlide();}}                
-                >
+              ? <button onClick={ nextSlide }>
                   <img src="https://dev.digitalgizmo.com/mural-assets/panels/panelpics/arrow-next.png" 
                     alt="next slide" className="slide-arrow"/>
-                </a>
+                </button>
               : <span className="no-more"><img src="https://dev.digitalgizmo.com/mural-assets/panels/panelpics/arrow-gray-next.png" 
                     alt="no more slides" className="slide-arrow"/></span>
             }

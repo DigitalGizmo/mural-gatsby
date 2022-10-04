@@ -21,6 +21,7 @@ const Pop = ({popData, closePop}) => {
     popType = popData.learnmoreNode.learnmoreType;
   }
   
+  // onClick={closePop}
   return (
     <div id="slimpop-overlay" onClick={closePop}> 
       <div id="slimpop-container">
