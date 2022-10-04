@@ -60,7 +60,11 @@ const Slide = ({popData}) => {
             }}            
           >
             { slideIndex > 0 
-              ? <a href="/" onClick={ prevSlide }>
+              ? <a href="/" 
+                onClick={e => { e.preventDefault(); 
+                  console.log('clicked prev');
+                  prevSlide();}}
+                >
                   <img src="https://dev.digitalgizmo.com/mural-assets/panels/panelpics/arrow-prev.png" 
                   alt="previous slide" className="slide-arrow"/>
                 </a> 
@@ -83,7 +87,11 @@ const Slide = ({popData}) => {
             }}
           >
             { slideIndex < (popData.learnmoreNode.slideSet.edges.length -1)
-              ? <a href="/" onClick={ nextSlide }>
+              ? <a href="/" 
+                onClick={e => { e.preventDefault();
+                  console.log('clicked next');
+                  nextSlide();}}                
+                >
                   <img src="https://dev.digitalgizmo.com/mural-assets/panels/panelpics/arrow-next.png" 
                     alt="next slide" className="slide-arrow"/>
                 </a>

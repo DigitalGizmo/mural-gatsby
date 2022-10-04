@@ -4,7 +4,7 @@ import { useContext, useEffect } from 'react'
 import { GlobalContext } from "../context/GlobalContext"
 import Seo from '../components/seo'
 import {homePopData} from '../components/pops/HomePopContent';
-import Pop from '../components/pops/Pop';
+import Pop from '../components/pops/pop';
 import '../index.css'
 
 const IndexPage = () => {
