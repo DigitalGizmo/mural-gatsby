@@ -575,7 +575,11 @@ audio.voices {
     top: 180px;
   }
 } 
-
+ button {
+  border: none;
+  background-color: transparent;
+ }
+ 
 .prev-slide {
   left: 4px;
 }
