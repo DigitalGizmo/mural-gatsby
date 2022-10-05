@@ -524,6 +524,7 @@ article.article-body {
   overflow-y: auto;
   width: 100%;
   z-index: 100;
+  cursor:  default;
 }
 
 /* large display */
@@ -578,8 +579,9 @@ audio.voices {
  button {
   border: none;
   background-color: transparent;
+  cursor: pointer;
  }
- 
+
 .prev-slide {
   left: 4px;
 }
