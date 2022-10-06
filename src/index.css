@@ -435,9 +435,17 @@ div.current-panel-article nav.tabs ul li {
   }
 }
 
-div.current-panel-article nav.tabs ul li a, div.current-panel-article nav.tabs ul li span {
+div.current-panel-article nav.tabs ul {
+  display: flex;
+  justify-content: center;
+}
+
+div.current-panel-article nav.tabs ul li a {
+}
+
+div.current-panel-article nav.tabs ul li span {
   display: block;
-  margin:  4.5%;
+  margin: 5%;
 }
 
 .tabs ul li a:hover {
