@@ -134,9 +134,7 @@ const PanelLayout = ({children, pageContext }) => { // , pageContext
             <h1>
               {contentIndex === 2
                 ? <span>{ panelTitle }</span>
-                : <a href="/"
-                    onClick={e => { e.preventDefault(); onChooseContent(2);}}
-                  >
+                : <a href="/" onClick={e => { e.preventDefault(); onChooseContent(2);}}>
                     { panelTitle }
                   </a>
               }
@@ -145,26 +143,9 @@ const PanelLayout = ({children, pageContext }) => { // , pageContext
         </AnimatePresence>
 
         <AnimatePresence>
-
-        {/* <motion.div 
-          className="content-area"
-          key={panelSlug}
-          variants={ linkDirection < 2 ? variant : noInitVariant}
-          // initial={{ x: linkDirection === 1 ? '100%' : '-100%'}}
-          initial={"enter"}
-          animate={{ x: 0, opacity: 1, transition: {  duration: 2.7 } }}
-          // exit={{x: linkDirection === 1 ? '-100%' : '100%', 
-          //   transition: {  duration: 1 }
-          // }}
-          exit={{opacity: 0.2, transition: {duration: 2.1}}}
-          // {...bind()}
-          onPanStart={onPanStart}
-        > */}
-
           {children}
-
-        {/* </motion.div> */}
         </AnimatePresence>
+
         { showPop &&
           <Pop
             closePop = {closePop}
