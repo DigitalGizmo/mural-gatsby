@@ -185,17 +185,19 @@ const PanelLayout = ({children, pageContext }) => { // , pageContext
           </motion.div>
         </AnimatePresence>
 
+        <AnimatePresence>
+
         <motion.div 
           className="content-area"
           key={panelTitle}
           variants={ linkDirection < 2 ? variant : noInitVariant}
           // initial={{ x: linkDirection === 1 ? '100%' : '-100%'}}
           initial={"enter"}
-          animate={{ x: 0, opacity: 1, transition: {  duration: 0.7 } }}
+          animate={{ x: 0, opacity: 1, transition: {  duration: 2.7 } }}
           // exit={{x: linkDirection === 1 ? '-100%' : '100%', 
           //   transition: {  duration: 1 }
           // }}
-          exit={{opacity: 0.2, transition: {duration: 0.1}}}
+          exit={{opacity: 0.2, transition: {duration: 2.1}}}
           // {...bind()}
           onPanStart={onPanStart}
         >
@@ -203,7 +205,7 @@ const PanelLayout = ({children, pageContext }) => { // , pageContext
           {children}
 
         </motion.div>
-
+        </AnimatePresence>
         { showPop &&
           <Pop
             closePop = {closePop}
