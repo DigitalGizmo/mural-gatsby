@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { useContext } from 'react'
+import {motion } from 'framer-motion'
 import { GlobalContext } from "../context/GlobalContext"
 
 const Article = ({pageContext, openPop}) => {
@@ -17,7 +18,14 @@ const Article = ({pageContext, openPop}) => {
   }
 
   return (
-    <div className="current-panel-article">
+    <motion.div 
+      className="current-panel-article"
+      key={ contentIndex }
+      initial={{ opacity: 0.2}}
+      animate={{ opacity: 1}}
+      exit={{ opacity: 0.2}}
+      transition={{duration: 0.5}}
+    >
       <nav className="tabs">
         <ul>
           { contentIndex === 0
@@ -86,7 +94,7 @@ const Article = ({pageContext, openPop}) => {
         </ul>
       </nav>
 
-    </div> //current-panel-article
+    </motion.div> //current-panel-article
   )
 }
 

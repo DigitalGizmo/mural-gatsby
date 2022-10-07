@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { useContext } from 'react'
+import {motion } from 'framer-motion'
 import { GlobalContext } from "../context/GlobalContext"
 
 // import {motion, AnimatePresence } from 'framer-motion'
@@ -12,10 +13,17 @@ const Detail = ({pageContext, openPop}) => { // , setContentIndex
   const foreInfo =  pageContext.node.articleSet.edges[1].node;
   const hotspots =  pageContext.node.hotspotSet.edges;
   const panelNum = pageContext.node.ordinal;
-  const { setContentIndex } = useContext(GlobalContext)
+  const { contentIndex, setContentIndex } = useContext(GlobalContext)
 
   return (
-    <div className="current-panel">
+    <motion.div 
+      className="current-panel"
+      key={ contentIndex }
+      initial={{ opacity: 0.2}}
+      animate={{ opacity: 1}}
+      exit={{ opacity: 0.2}}
+      transition={{duration: 0.5}}
+    >
       <article>
       <h3>About This Panel</h3>
         <div dangerouslySetInnerHTML={blurb()} />
@@ -73,7 +81,7 @@ const Detail = ({pageContext, openPop}) => { // , setContentIndex
     </nav>
 
 
-    </div>
+    </motion.div>
   )
 }
 

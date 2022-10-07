@@ -1,9 +1,8 @@
 import * as React from 'react'
 import { useState, useContext, useEffect } from 'react'
-import { Link, navigate } from 'gatsby' // , useStaticQuery, graphql
+import { Link } from 'gatsby' // , useStaticQuery, graphql , navigate
 import { GlobalContext } from "../context/GlobalContext"
 import {motion, AnimatePresence } from 'framer-motion'
-// import { useDrag } from '@use-gesture/react';
 import JSONData from '../../content/all-panels.json'
 import Pop from './pops/pop'
 import '../index.css'
@@ -12,10 +11,11 @@ import '../index.css'
 //     popData, children}) => {
 const PanelLayout = ({children, pageContext }) => { // , pageContext
   const {  contentIndex, showPop, setShowPop, popData,
-    setContentIndex, linkDirection, setLinkDirection } = useContext(GlobalContext)
+    setContentIndex, setLinkDirection } = useContext(GlobalContext)
   const { panelSlug, panelTitle, pageOrdinal } = useContext(GlobalContext)
+  // , linkDirection
 
-  // const [linkDirection, setLinkDirection] = useState(1);
+  // const [linkDirection, setLinkDirection] = useState(1); 
   const [navLinkIndexes, setNavLinkIndexes] = useState(
     [1,1,1,1,1,1,1,1,1,1,1]
   )

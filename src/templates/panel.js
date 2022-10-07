@@ -2,7 +2,7 @@ import * as React from 'react'
 import { useContext, useEffect } from 'react' // useState, 
 import { Link, navigate } from 'gatsby' // , navigate
 import { GlobalContext } from "../context/GlobalContext"
-import {motion } from 'framer-motion' // , AnimatePresence
+import {motion, AnimatePresence } from 'framer-motion' // , AnimatePresence
 import Detail from '../components/Detail'
 import Article from '../components/Article'
 import Seo from '../components/seo'
@@ -62,10 +62,9 @@ const Panel = ({pageContext}) => {
   }  
   // Workaround bcz inital={false} isn't working in AnimatePresence
   const variant = {
-    enter: { x: linkDirection === 1 ? '100%' : '-100%',
-    // transition: {  duration: 1 }
-  },
+    enter: { x: linkDirection === 1 ? '100%' : '-100%' },
   };
+
   const noInitVariant = {
     enter: { x: 0 },
   };
@@ -114,6 +113,8 @@ const Panel = ({pageContext}) => {
         }
       </motion.div>
 
+      <AnimatePresence>
+
       { contentIndex === 2 &&
         <Detail
           pageContext = {pageContext}
@@ -131,7 +132,7 @@ const Panel = ({pageContext}) => {
           // closePop via panelLayout
         />
       }
-
+      </AnimatePresence>
       <motion.div 
         className="next-panel"
         initial={{ opacity: 1 }}
