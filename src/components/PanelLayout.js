@@ -62,47 +62,6 @@ const PanelLayout = ({children, pageContext }) => { // , pageContext
   //   }  
   // `)
 
-  function onPanStart(event, info) {
-    console.log('panStart delta: ' + info.delta.x, info.delta.y +
-    ' offset: ' + info.offset.x, info.offset.y)
-
-    if (event.target.tagName === "A" || 
-      event.target.parentNode.className === "pop_item") {
-      // Don't slide panel when target was slide-show
-      // console.log('got to ignore ');
-    } else {
-      if (Math.abs(info.delta.x) > Math.abs(info.delta.y)) { // pan only if move was horizontal
-        if (info.delta.x < -1) {
-          if (pageContext.node.ordinal < 11) { // next
-            // console.log('numChanges: ' + numChanges);
-            setLinkDirection(1);
-            // console.log('dir 1, info.delta.x: ' + info.delta.x);
-            navigate(`/panels/${slugs[pageContext.node.ordinal]}`);
-            return;
-          }
-        } else if (info.delta.x > 1) { // prev
-          if (pageContext.node.ordinal > 1){
-            setLinkDirection(0);
-            // console.log('dir 0, info.delta.x: ' + info.delta.x)
-            navigate(`/panels/${slugs[pageContext.node.ordinal - 2]}`);
-            return;
-          }
-        }
-      }
-    }
-  }
-
-  // Workaround bcz inital={false} isn't working in AnimatePresence
-  const variant = {
-    enter: {
-       x: linkDirection === 1 ? '100%' : '-100%'
-    },
-  };
-  const noInitVariant = {
-    enter: {
-       x: 0
-    },
-  };
 
   // Need to set back to Detail on new page
   // And we should use this opportunity to set direction
@@ -187,9 +146,9 @@ const PanelLayout = ({children, pageContext }) => { // , pageContext
 
         <AnimatePresence>
 
-        <motion.div 
+        {/* <motion.div 
           className="content-area"
-          key={panelTitle}
+          key={panelSlug}
           variants={ linkDirection < 2 ? variant : noInitVariant}
           // initial={{ x: linkDirection === 1 ? '100%' : '-100%'}}
           initial={"enter"}
@@ -200,11 +159,11 @@ const PanelLayout = ({children, pageContext }) => { // , pageContext
           exit={{opacity: 0.2, transition: {duration: 2.1}}}
           // {...bind()}
           onPanStart={onPanStart}
-        >
+        > */}
 
           {children}
 
-        </motion.div>
+        {/* </motion.div> */}
         </AnimatePresence>
         { showPop &&
           <Pop

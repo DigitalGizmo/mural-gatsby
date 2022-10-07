@@ -1,5 +1,5 @@
 import React from "react"
-import {AnimatePresence } from 'framer-motion'
+// import {AnimatePresence } from 'framer-motion'
 
 // import { ThemeProvider } from "./src/context/ThemeContext"
 import GlobalContextProvider from "./src/context/GlobalContext"
