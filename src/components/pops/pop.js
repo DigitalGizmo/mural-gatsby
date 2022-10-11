@@ -24,15 +24,25 @@ const Pop = ({popData, closePop}) => {
   
   if (popData) {
     return (
-      <div id="slimpop-overlay" onClick={closePop}> 
+      <motion.div 
+        id="slimpop-overlay" 
+        onClick={closePop}
+        key={popData}
+        initial={{ opacity: .2, }}
+        animate={{ opacity: 1,
+          transition: {  duration: 0.2 } }}
+        exit={{opacity: 0,
+          transition: {  duration: 0.2 }       
+        }}     
+    > 
         <motion.div 
           id="slimpop-container"
-          key={popData}
+          // key={popData}
           initial={{ opacity: .2, scale: .5 }}
           animate={{ opacity: 1, scale: 1,
-            transition: {  duration: 0.2 } }}
-          exit={{opacity: .2, scale: .01,
-            transition: {  duration: 0.1 }       
+            transition: {  duration: 0.3 } }}
+          exit={{opacity: 0, scale: .01,
+            transition: {  duration: 0.2 }       
           }}     
         >
           <div className="slimpop-wrapper">
@@ -79,7 +89,7 @@ const Pop = ({popData, closePop}) => {
 
         </motion.div>{/* slimpop-container  */} 
 
-      </div> 
+      </motion.div> 
     )
   }
   return <div><p>Loading...</p></div>
