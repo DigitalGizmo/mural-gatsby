@@ -141,12 +141,14 @@ const PanelLayout = ({children, pageContext }) => { // , pageContext
           {children}
         </AnimatePresence>
 
-        { showPop &&
-          <Pop
-            closePop = {closePop}
-            popData = {popData} 
-          />
-        }
+        <AnimatePresence>
+          { showPop &&
+            <Pop
+              closePop = {closePop}
+              popData = {popData} 
+            />
+          }
+        </AnimatePresence>
       </div>
     )
   }

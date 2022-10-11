@@ -1,4 +1,5 @@
 import * as React from 'react'
+import {motion } from 'framer-motion' 
 import Slide from './Slide';
 import Voice from './Voice';
 import Video from './Video';
@@ -21,59 +22,67 @@ const Pop = ({popData, closePop}) => {
     popType = popData.learnmoreNode.learnmoreType;
   }
   
-  // onClick={closePop}
-  return (
-    <div id="slimpop-overlay" onClick={closePop}> 
-      <div id="slimpop-container">
-        <div className="slimpop-wrapper">
+  if (popData) {
+    return (
+      <div id="slimpop-overlay" onClick={closePop}> 
+        <motion.div 
+          id="slimpop-container"
+          key={popData}
+          initial={{ opacity: .2, scale: .5 }}
+          animate={{ opacity: 1, scale: 1,
+            transition: {  duration: 0.2 } }}
+          exit={{opacity: .2, scale: .01,
+            transition: {  duration: 0.1 }       
+          }}     
+        >
+          <div className="slimpop-wrapper">
+            <p className="pop-close">
+              <a id="close-link" href="/" onClick={closePop}>
+                Close
+              </a>
+            </p>
+              
+            <h4 className="subhead">{ subtitle }</h4>
+            <h1>{ title }</h1>
 
-          <p className="pop-close">
-            <a id="close-link" href="/" onClick={closePop}>
-              Close
-            </a>
-          </p>
-            
-          <h4 className="subhead">{ subtitle }</h4>
-          <h1>{ title }</h1>
+            { (popType === 'images' ||
+              popType === 'objects') &&
+              <Slide
+                popData = {popData}
+              />
+            }
 
-          { (popType === 'images' ||
-            popType === 'objects') &&
-            <Slide
-              popData = {popData}
-            />
-          }
+            { popType === 'voices' &&
+              <Voice
+                popData = {popData}
+              />
+            }
 
-          { popType === 'voices' &&
-            <Voice
-              popData = {popData}
-            />
-          }
+            { popType === 'video' &&
+              <Video
+                popData = {popData}
+              />
+            }
 
-          { popType === 'video' &&
-            <Video
-              popData = {popData}
-            />
-          }
+            { popType === 'credits' &&
+              <Credits
+                popData = {popData}
+              />
+            }
 
-          { popType === 'credits' &&
-            <Credits
-              popData = {popData}
-            />
-          }
+            { popType === 'hotspot' &&
+              <Hotspot
+                popData = {popData}
+              />
+            }
+          </div>{/* slimpop-wrapper  */} 
 
-          { popType === 'hotspot' &&
-            <Hotspot
-              popData = {popData}
-            />
-          }
-        </div>{/* slimpop-wrapper  */} 
+        </motion.div>{/* slimpop-container  */} 
 
-      </div>{/* slimpop-container  */} 
-
-    </div> 
-    
-
-  )
+      </div> 
+    )
+  }
+  return <div><p>Loading...</p></div>
 }
 
 export default Pop
