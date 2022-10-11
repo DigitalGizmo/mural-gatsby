@@ -73,11 +73,6 @@ const PanelLayout = ({children, pageContext }) => { // , pageContext
 
   }, [panelSlug])
 
-  // function onPanEnd(event, info) {
-  //   console.log('---- End delta: ' + info.delta.x, info.delta.y +
-  //   ' offset: ' + info.offset.x, info.offset.y)
-  // }
-  
 
   // pageContext.node will only be defined for panels
   if (pageContext.node) {

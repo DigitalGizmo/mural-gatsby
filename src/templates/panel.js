@@ -32,8 +32,8 @@ const Panel = ({pageContext}) => {
   }
 
   function onPanStart(event, info) {
-    console.log('panStart delta: ' + info.delta.x, info.delta.y +
-    ' offset: ' + info.offset.x, info.offset.y)
+    // console.log('panStart delta: ' + info.delta.x, info.delta.y +
+    // ' offset: ' + info.offset.x, info.offset.y)
 
     if (event.target.tagName === "A" || 
       event.target.parentNode.className === "pop_item") {
@@ -73,7 +73,9 @@ const Panel = ({pageContext}) => {
     setPanelSlug(pageContext.node.slug)
     setPanelTitle(pageContext.node.panelTitle)
     setPageOrdinal(pageContext.node.ordinal)
-  }, [])
+  }, [pageContext.node.slug, pageContext.node.panelTitle,
+    pageContext.node.ordinal,
+  ])
 
   return (
     <motion.div 
@@ -92,13 +94,7 @@ const Panel = ({pageContext}) => {
       // {...bind()}
       onPanStart={onPanStart}
     >      
-      <motion.div 
-        className="prev-panel"
-        initial={{ opacity: 1 }}
-        animate={{ opacity: 1, transition: {  duration: 0.1 } }}
-        exit={{opacity: 0.1, transition: {  duration: 0.1 }
-        }}            
-      >
+      <div className="prev-panel">
         {prevPanelSlug &&
           <img src={`https://dev.digitalgizmo.com/mural-assets/panels/panelpics/${pageContext.node.slug}-prev.jpg`} 
           alt={`Previous panel is ${prevPanelSlug}`} />
@@ -107,11 +103,17 @@ const Panel = ({pageContext}) => {
           <Link 
             onClick={e => { setLinkDirection(0);}}
             to={`/panels/${prevPanelSlug}`} >
-            <img src="https://dev.digitalgizmo.com/mural-assets/panels/panelpics/arrow-prev.png" 
-              alt="prev arrow" className="arrow"/>
+            <motion.img 
+              initial={{ opacity: 1 }}
+              animate={{ opacity: 1, transition: {  duration: 0.1 } }}
+              exit={{opacity: 0.1, transition: {  duration: 0.1 }
+              }}            
+              src="https://dev.digitalgizmo.com/mural-assets/panels/panelpics/arrow-prev.png" 
+              alt="prev arrow" className="arrow"
+            />
           </Link>
         }
-      </motion.div>
+      </div>
 
       <AnimatePresence>
 
@@ -133,13 +135,7 @@ const Panel = ({pageContext}) => {
         />
       }
       </AnimatePresence>
-      <motion.div 
-        className="next-panel"
-        initial={{ opacity: 1 }}
-        animate={{ opacity: 1, transition: {  duration: 0.1 } }}
-        exit={{opacity: 0.1, transition: {  duration: 0.1 }
-        }}
-      >
+      <div className="next-panel">
         {nextPanelSlug &&
           <img src={`https://dev.digitalgizmo.com/mural-assets/panels/panelpics/${pageContext.node.slug}-next.jpg`} 
             alt={`${nextPanelSlug} next`} />        
@@ -148,13 +144,19 @@ const Panel = ({pageContext}) => {
           <Link 
             onClick={e => { setLinkDirection(1);}}
             to={`/panels/${nextPanelSlug}`} >
-            <img src="https://dev.digitalgizmo.com/mural-assets/panels/panelpics/arrow-next.png" 
-              alt="next arrow" className="arrow"/>
+            <motion.img 
+              initial={{ opacity: 1 }}
+              animate={{ opacity: 1, transition: {  duration: 0.1 } }}
+              exit={{opacity: 0.1, transition: {  duration: 0.1 }
+              }}            
+              src="https://dev.digitalgizmo.com/mural-assets/panels/panelpics/arrow-next.png" 
+              alt="next arrow" className="arrow"
+            />
             {/* <p>debug: showPop {showPop ? `true` : `false`}.</p> */}
 
           </Link>
         }
-      </motion.div>
+      </div>
     </motion.div>
   )
 }
