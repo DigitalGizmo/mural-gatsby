@@ -8,10 +8,10 @@ const Video = ({popData}) => {
       <div id="video-content">
 
         <video  width="720" height="405" controls="controls" 
-            poster={`https://dev.digitalgizmo.com/mural-assets/pops/learnmore/media/p${popData.panelNum}-${popData.articleType}-${popData.learnmoreNode.learnmoreType}.jpg`}
+            poster={`${process.env.GATSBY_ASSET_PATH}/pops/learnmore/media/p${popData.panelNum}-${popData.articleType}-${popData.learnmoreNode.learnmoreType}.jpg`}
         >
-          <source src={`https://dev.digitalgizmo.com/mural-assets/pops/learnmore/media/p${popData.panelNum}-${popData.articleType}-${popData.learnmoreNode.learnmoreType}.mp4`} type="video/mp4"/>
-          <source src={`https://dev.digitalgizmo.com/mural-assets/pops/learnmore/media/p${popData.panelNum}-${popData.articleType}-${popData.learnmoreNode.learnmoreType}.webm`} type="video/webm"/>
+          <source src={`${process.env.GATSBY_ASSET_PATH}/pops/learnmore/media/p${popData.panelNum}-${popData.articleType}-${popData.learnmoreNode.learnmoreType}.mp4`} type="video/mp4"/>
+          <source src={`${process.env.GATSBY_ASSET_PATH}/pops/learnmore/media/p${popData.panelNum}-${popData.articleType}-${popData.learnmoreNode.learnmoreType}.webm`} type="video/webm"/>
         
           Your browser does not support the video tag.
         </video>

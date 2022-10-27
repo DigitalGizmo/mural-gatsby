@@ -96,7 +96,7 @@ const Panel = ({pageContext}) => {
     >      
       <div className="prev-panel">
         {prevPanelSlug &&
-          <img src={`https://dev.digitalgizmo.com/mural-assets/panels/panelpics/${pageContext.node.slug}-prev.jpg`} 
+          <img src={`${process.env.GATSBY_ASSET_PATH}/panels/panelpics/${pageContext.node.slug}-prev.jpg`} 
           alt={`Previous panel is ${prevPanelSlug}`} />
         }
         {prevPanelSlug &&
@@ -108,7 +108,7 @@ const Panel = ({pageContext}) => {
               animate={{ opacity: 1, transition: {  duration: 0.1 } }}
               exit={{opacity: 0.1, transition: {  duration: 0.1 }
               }}            
-              src="https://dev.digitalgizmo.com/mural-assets/panels/panelpics/arrow-prev.png" 
+              src={`${process.env.GATSBY_ASSET_PATH}/panels/panelpics/arrow-prev.png`} 
               alt="prev arrow" className="arrow"
             />
           </Link>
@@ -137,7 +137,7 @@ const Panel = ({pageContext}) => {
       </AnimatePresence>
       <div className="next-panel">
         {nextPanelSlug &&
-          <img src={`https://dev.digitalgizmo.com/mural-assets/panels/panelpics/${pageContext.node.slug}-next.jpg`} 
+          <img src={`${process.env.GATSBY_ASSET_PATH}/panels/panelpics/${pageContext.node.slug}-next.jpg`} 
             alt={`${nextPanelSlug} next`} />        
         }
         {nextPanelSlug &&
@@ -149,7 +149,7 @@ const Panel = ({pageContext}) => {
               animate={{ opacity: 1, transition: {  duration: 0.1 } }}
               exit={{opacity: 0.1, transition: {  duration: 0.1 }
               }}            
-              src="https://dev.digitalgizmo.com/mural-assets/panels/panelpics/arrow-next.png" 
+              src={`${process.env.GATSBY_ASSET_PATH}/panels/panelpics/arrow-next.png`} 
               alt="next arrow" className="arrow"
             />
             {/* <p>debug: showPop {showPop ? `true` : `false`}.</p> */}

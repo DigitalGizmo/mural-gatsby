@@ -80,7 +80,7 @@ const PanelLayout = ({children, pageContext }) => { // , pageContext
       <div className="wrapper"> 
         <div className="msm-link">
           <a href="https://mainestatemuseum.org/exhibit/maine-labor-mural/">
-            <img src="https://dev.digitalgizmo.com/mural-assets/images/msm-logo.svg" 
+            <img src={`${process.env.GATSBY_ASSET_PATH}/images/msm-logo.svg`} 
               alt="Maine State Museum" className="msm-logo"/>
           </a>
         </div>
@@ -96,7 +96,7 @@ const PanelLayout = ({children, pageContext }) => { // , pageContext
             if (panel.node.ordinal < 50) {
               return ( pageOrdinal === (index + 1)
                 ? <img key={panel.node.slug}
-                  src={`https://dev.digitalgizmo.com/mural-assets/images/mini-nav-${panel.node.ordinal}.jpg`}
+                  src={`${process.env.GATSBY_ASSET_PATH}/images/mini-nav-${panel.node.ordinal}.jpg`}
                   alt={`${panel.node.panelTitle} selected`}
                   className="panel-nav-selected"
                   />
@@ -104,7 +104,7 @@ const PanelLayout = ({children, pageContext }) => { // , pageContext
                 <Link  key={panel.node.slug}
                   onClick={e => { setLinkDirection(navLinkIndexes[index]);}}
                   to={`/panels/${panel.node.slug}`} >
-                  <img src={`https://dev.digitalgizmo.com/mural-assets/images/mini-nav-${panel.node.ordinal}.jpg`}
+                  <img src={`${process.env.GATSBY_ASSET_PATH}/images/mini-nav-${panel.node.ordinal}.jpg`}
                   alt={panel.node.panelTitle}/>
                 </Link>
               )

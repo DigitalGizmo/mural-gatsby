@@ -6,7 +6,7 @@ const Hotspot = ({ popData }) => {
     <div>
      <div className="pop-img">
         <img alt={`learn more: ${ popData.hotspotNode.title } `}
-          src={`https://dev.digitalgizmo.com/mural-assets/pops/hotspot/p${popData.panelNum}-${popData.hotspotNode.slug}.jpg`}/>
+          src={`${process.env.GATSBY_ASSET_PATH}/pops/hotspot/p${popData.panelNum}-${popData.hotspotNode.slug}.jpg`}/>
       	
         <div dangerouslySetInnerHTML={{ __html: popData.hotspotNode.caption}}/>
 

@@ -58,7 +58,7 @@ const Article = ({pageContext, openPop}) => {
       <div className="panel-image">
 
       <img alt={`panel: ${ articleInfo.title } `}
-          src={`https://dev.digitalgizmo.com/mural-assets/panels/articlepics/p${panelNum}-${articleInfo.articleType}.jpg`}/>
+          src={`${process.env.GATSBY_ASSET_PATH}/panels/articlepics/p${panelNum}-${articleInfo.articleType}.jpg`}/>
         <div 
           dangerouslySetInnerHTML={caption()} 
           className="prompt"/>
@@ -80,7 +80,7 @@ const Article = ({pageContext, openPop}) => {
                       panelNum: panelNum, articleType: articleInfo.articleType,
                       learnmoreNode: learnmore.node});}}>
                   <img alt={`learn more: ${ learnmore.node.title } `}
-                    src={`https://dev.digitalgizmo.com/mural-assets/pops/learnmore/thumbpics/p${panelNum}-${articleInfo.articleType}-${learnmore.node.learnmoreType}.jpg`}/>
+                    src={`${process.env.GATSBY_ASSET_PATH}/pops/learnmore/thumbpics/p${panelNum}-${articleInfo.articleType}-${learnmore.node.learnmoreType}.jpg`}/>
                   <span>{
                     learnmore.node.learnmoreType.charAt(0).toUpperCase() +
                     learnmore.node.learnmoreType.slice(1)

@@ -4,6 +4,7 @@ module.exports = {
     siteUrl: `https://www.yourdomain.tld`
   },
   pathPrefix: `/maine-labor-mural`,
+  // assetPrefix: `https://dev.digitalgizmo.com/maine-labor-mural/`,
   plugins: [
     {
       resolve: `gatsby-plugin-layout`,
