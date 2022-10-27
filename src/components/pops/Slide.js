@@ -79,10 +79,10 @@ const Slide = ({popData}) => {
           >
             { slideIndex > 0 
               ? <button onClick={ prevSlide }>
-                  <img src="https://dev.digitalgizmo.com/mural-assets/panels/panelpics/arrow-prev.png" 
+                  <img src={`${process.env.GATSBY_ASSET_PATH}/panels/panelpics/arrow-prev.png`}
                   alt="previous slide" className="slide-arrow"/>
                 </button> 
-              : <span className="no-more"><img src="https://dev.digitalgizmo.com/mural-assets/panels/panelpics/arrow-gray-prev.png" 
+              : <span className="no-more"><img src={`${process.env.GATSBY_ASSET_PATH}/panels/panelpics/arrow-gray-prev.png`} 
                     alt="no more slides" className="slide-arrow"/></span>
             }
           </motion.nav>
@@ -90,7 +90,7 @@ const Slide = ({popData}) => {
           <img 
             className="slide-image"
             alt={popData.learnmoreNode.title} 
-            src={`https://dev.digitalgizmo.com/mural-assets/pops/learnmore/fullpics/p${popData.panelNum}-${popData.articleType}-${popData.learnmoreNode.learnmoreType}-${slideIndex+1}.jpg`}
+            src={`${process.env.GATSBY_ASSET_PATH}/pops/learnmore/fullpics/p${popData.panelNum}-${popData.articleType}-${popData.learnmoreNode.learnmoreType}-${slideIndex+1}.jpg`}
           />
 
           <motion.nav 
@@ -102,10 +102,10 @@ const Slide = ({popData}) => {
           >
             { slideIndex < (popData.learnmoreNode.slideSet.edges.length -1)
               ? <button onClick={ nextSlide }>
-                  <img src="https://dev.digitalgizmo.com/mural-assets/panels/panelpics/arrow-next.png" 
+                  <img src={`${process.env.GATSBY_ASSET_PATH}/panels/panelpics/arrow-next.png`}
                     alt="next slide" className="slide-arrow"/>
                 </button>
-              : <span className="no-more"><img src="https://dev.digitalgizmo.com/mural-assets/panels/panelpics/arrow-gray-next.png" 
+              : <span className="no-more"><img src={`${process.env.GATSBY_ASSET_PATH}/panels/panelpics/arrow-gray-next.png`} 
                     alt="no more slides" className="slide-arrow"/></span>
             }
           </motion.nav>

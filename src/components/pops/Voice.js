@@ -11,7 +11,7 @@ const Voice = ({popData}) => {
 
             <audio className="voices" controls
             
-              src={`https://dev.digitalgizmo.com/mural-assets/pops/learnmore/media/p${popData.panelNum}-${popData.articleType}-${popData.learnmoreNode.learnmoreType}-${voice.node.partNum}.mp3`} 
+              src={`${process.env.GATSBY_ASSET_PATH}/pops/learnmore/media/p${popData.panelNum}-${popData.articleType}-${popData.learnmoreNode.learnmoreType}-${voice.node.partNum}.mp3`} 
               type="audio/mpeg"
 
             />

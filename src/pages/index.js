@@ -11,6 +11,8 @@ const IndexPage = () => {
   const { setLinkDirection, setShowPop, setPopData,
     showPop, popData } = useContext(GlobalContext); // setContentIndex, 
 
+  // const ASSET_PATH = "https://dev.digitalgizmo.com/maine-labor-mural"
+
   // Ideally refactor this -- forgot about Home pg use when I put it in Panel.js
   function openPop (popParams) { // panelNum, learnmoreNode
     // console.log('got to Home openPop');
@@ -43,12 +45,14 @@ const IndexPage = () => {
       <header>
         <div className="home-msm-link">
           <a href="https://mainestatemuseum.org/exhibit/maine-labor-mural">
-            <img src="https://dev.digitalgizmo.com/mural-assets/images/msm-logo.svg" alt="Maine State Museum" className="msm-logo"/>
+            <img src={`${process.env.GATSBY_ASSET_PATH}/images/msm-logo.svg`}
+            alt="Maine State Museum" className="msm-logo"/>
           </a>
         </div>
 
         <h1>Maine Labor Mural</h1>
-        <p>The Maine Labor Mural depicts scenes of the state&rsquo;s labor history in an effort to honor the men and women who built Maine.</p>
+        <p>The Maine Labor Mural depicts scenes of the state&rsquo;s labor history in an effort 
+          to honor the men and women who built Maine.</p>
         <p className="prompt">Tap/click a panel to learn more</p>
       </header>
 
@@ -56,67 +60,67 @@ const IndexPage = () => {
 
         <Link to="/panels/apprenticeship">
           <img alt="apprenticeship"
-            src="https://dev.digitalgizmo.com/mural-assets/panels/panelpics/apprenticeship.jpg" />
+            src={`${process.env.GATSBY_ASSET_PATH}/panels/panelpics/apprenticeship.jpg`} />
           <h2>Apprenticeship</h2>
         </Link>
 
         <Link to="/panels/child-labor">
           <img alt="child-labor"
-            src="https://dev.digitalgizmo.com/mural-assets/panels/panelpics/child-labor.jpg" />
+            src={`${process.env.GATSBY_ASSET_PATH}/panels/panelpics/child-labor.jpg`} />
           <h2>Child Labor</h2>
         </Link>
 
         <Link to="/panels/women-textiles">
           <img alt="women-textiles"
-            src="https://dev.digitalgizmo.com/mural-assets/panels/panelpics/women-textiles.jpg" />
+            src={`${process.env.GATSBY_ASSET_PATH}/panels/panelpics/women-textiles.jpg`} />
           <h2>Women Textile Workers</h2>
         </Link>
 
         <Link to="/panels/secret-ballot">
           <img alt="secret-ballot"
-            src="https://dev.digitalgizmo.com/mural-assets/panels/panelpics/secret-ballot.jpg" />
+            src={`${process.env.GATSBY_ASSET_PATH}/panels/panelpics/secret-ballot.jpg`} />
           <h2>The Secret Ballot</h2>
         </Link>
     
         <Link to="/panels/labor-day">
         <img alt="labor-day"
-            src="https://dev.digitalgizmo.com/mural-assets/panels/panelpics/labor-day.jpg" />
+            src={`${process.env.GATSBY_ASSET_PATH}/panels/panelpics/labor-day.jpg`} />
           <h2>First Labor Day</h2>
         </Link>
 
         <Link to="/panels/logging">
           <img alt="logging"
-            src="https://dev.digitalgizmo.com/mural-assets/panels/panelpics/logging.jpg" />
+            src={`${process.env.GATSBY_ASSET_PATH}/panels/panelpics/logging.jpg`} />
           <h2>Woods Workers</h2>
         </Link>
 
         <Link to="/panels/shoe-strike">
           <img alt="shoe-strike"
-            src="https://dev.digitalgizmo.com/mural-assets/panels/panelpics/shoe-strike.jpg" />
+            src={`${process.env.GATSBY_ASSET_PATH}/panels/panelpics/shoe-strike.jpg`} />
           <h2>The &rsquo;37 Shoe Strike</h2>
         </Link>
 
         <Link to="/panels/reform">
           <img alt="reform"
-            src="https://dev.digitalgizmo.com/mural-assets/panels/panelpics/reform.jpg" />
+            src={`${process.env.GATSBY_ASSET_PATH}/panels/panelpics/reform.jpg`} />
           <h2>Labor Reformers</h2>
         </Link>
 
         <Link to="/panels/Rosie">
           <img alt="Rosie"
-            src="https://dev.digitalgizmo.com/mural-assets/panels/panelpics/Rosie.jpg" />
+            src={`${process.env.GATSBY_ASSET_PATH}/panels/panelpics/Rosie.jpg`} />
           <h2>Rosie the Riveter</h2>
         </Link>
 
         <Link to="/panels/jay-strike">
           <img alt="jay-strike"
-            src="https://dev.digitalgizmo.com/mural-assets/panels/panelpics/jay-strike.jpg" />
+            src={`${process.env.GATSBY_ASSET_PATH}/panels/panelpics/jay-strike.jpg`} />
           <h2>Jay Strike</h2>
         </Link>
 
         <Link to="/panels/labor-future">
           <img alt="labor-future"
-            src="https://dev.digitalgizmo.com/mural-assets/panels/panelpics/labor-future.jpg" />
+            src={`${process.env.GATSBY_ASSET_PATH}/panels/panelpics/labor-future.jpg`} />
           <h2>The Future of Maine Labor</h2>
         </Link>
 
