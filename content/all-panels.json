@@ -474,51 +474,15 @@
                                     "partNum": 1,
                                     "narrative": "<p>&quot;I cannot speak of this industry from personal investigation, but information received from competent and trustworthy sources gives me the impression that child slavery nowhere assumes a worse form than in the &lsquo;sardine&rsquo; canneries of Maine. Says one of my correspondents in a private letter: &lsquo;In the rush season, fathers, mothers, older children and babies work from early morn till night &mdash; from dawn till dark, in fact. You will scarcely believe me perhaps, when I say, &lsquo;and babies,&rsquo; but it is literally true. I&rsquo;ve seen them in the present season, no more than four or five years old, working hard, and beaten when they lagged. As you may suppose, being out here, far from the center of the State, we are not much troubled by factory inspection. I have read about the conditions in the southern mills, but nothing I have read equals for sheer brutality what I see right here in Washington county.&quot;</p><p>John Spargo, The Bitter Cry of Children</p>"
                                   }
-                                }
-                              ]
-                            }
-                          }
-                        },
-                        {
-                          "node": {
-                            "title": "Young Sardine Workers",
-                            "learnmoreType": "images",
-                            "caption": "<p>Three young cutters at Seacoast Canning Co., Factory #4, Photograph by Lewis Hine, Eastport, Maine, August 1911. Courtesy of the Library of Congress.</p>",
-                            "narrative": "",
-                            "slideSet": {
-                              "edges": [
-                                {
-                                  "node": {
-                                    "title": "Three Young Cutters at Seacoast Canning Co.",
-                                    "caption": "<p><strong>Three Young Cutters at Seacoast Canning Co., Factory #4,</strong> photograph by Lewis Hine, Eastport, Maine, August 1911. Courtesy of the Library of Congress.</p>",
-                                    "narrative": "<p>These boys, ages 10 to 12, worked regularly at the canning factory. New York photographer Lewis Hine quit his teaching job and went to work at the National Child Labor Committee which documented children&rsquo;s working conditions. Hine also focused on collecting the children&rsquo;s stories. He spent August 1911 in sardine packing plants at Eastport and Lubec, Maine.</p>"
-                                  }
                                 },
                                 {
                                   "node": {
-                                    "title": "Clarence Goodeill Shows How He Does It.",
-                                    "caption": "<p><strong><em>Clarence Goodeill Shows How He Does It.</em>&nbsp;</strong>photograph by Lewis Hine, Eastport, Maine, August 1911. Courtesy of the Library of Congress.</p>",
-                                    "narrative": "<p>Eight-year-old Clarence demonstrates for photographer Lewis Hine how he processes sardines at the #7, Seacoast Canning Co. in Eastport, Maine. Many children cut themselves as they handled slippery fish and sharp knives.</p>"
-                                  }
-                                },
-                                {
-                                  "node": {
-                                    "title": "Housing Conditions in Settlement at Seacoast Can",
-                                    "caption": "<p><strong><em>Housing conditions in settlement at Seacoast Cannery &hellip;,</em></strong><em>&nbsp;</em>photograph by Lewis Hine, Eastport, Maine, August 1911. Courtesy of the Library of Congress.</p>",
-                                    "narrative": "<p>The Goodeills with their seven children squeezed into this house. Four of the children, aged eight to fifteen, labored in the cannery. Working families lived in these seasonal camps built and owned by the canning companies. They also shopped in the company-owned stores. Although not constructed or insulated for year-round use, this was the permanent home of the Goodeill family.</p>"
-                                  }
-                                },
-                                {
-                                  "node": {
-                                    "title": "Group of Young Cartoners",
-                                    "caption": "<p><strong>Group of Young Cartoners,</strong> photograph by Lewis Hine, Eastport, Maine, August 1911. Courtesy of the Library of Congress.</p>",
-                                    "narrative": "<p>These children show the cans of sardines they pack into paper cartons. The boys and girls range from age eight to 14 years old. The oldest, reported making up to $4 after packing all day and into the evening.</p>"
+                                    "title": "Bureau of Industrial and Labor Statistics for the State of Maine",
+                                    "partNum": 2,
+                                    "narrative": "<p>From Inspector Eva Shorey&rsquo;s report,</p><p>&ldquo;There is&hellip;no comparison between the southern mills, or any mills, and the sardine factories. Most of the work in which the children are employed is done practically in the open air, and not in hot, stifling, noisy rooms; there are no regular hours, the work depending on the amount of fish received. In the &lsquo;rush season,&rsquo; there is an immense amount of work from the nature of the business, and the factory owners often have great difficulty in finding enough help. This does not last very long, the entire season being seven months and the busy time from the last of August to the middle of November.</p><p>Many of the families, depending on this business for their year&rsquo;s income, are willing to work hard for a short time. There is no &lsquo;slave driving.&rsquo; The young children come and go as they wish. It may not be very attractive or desirable work for one of tender years, but it is honest and healthy and does not continue day in and day out nor for any great length of time consecutively. The children appear to enjoy it and are very proud to tell how many boxes they have cut.</p><p>After observing the work in the different factories, I questioned many people who had lived in Eastport all their lives as to their knowledge of the work of the children. I could not find a person who had ever seen or heard of any of the brutal conditions described. &nbsp;They were all quite aghast at [John Spargo&rsquo;s] statement.&rdquo;</p>"
                                   }
                                 }
                               ]
-                            },
-                            "voiceSet": {
-                              "edges": []
                             }
                           }
                         },
@@ -549,6 +513,49 @@
                                     "title": "Flakes",
                                     "caption": "<p><strong>Flakes</strong>, ca. 1910. &nbsp;Maine State Museum 82.88.26; 82.88.27.</p>",
                                     "narrative": "<p>In sardine processing, women and children speared as many small fish as possible on these wooden sticks called flakes. The workers placed these simple sticks in ovens to steam-cook, or cure, the fish.&nbsp;</p><p>One 13-year-old fish curer reported to Maine&rsquo;s Bureau of Industrial and Labor Statistics inspector: <em>&quot;I put the fish on flakes and get 5 cents a dozen flakes of 120 to 150 fish to a flake. I can do six dozen in 9 or 10 hours and when I get that number done I go home. In hot days when the fish are soft it takes longer. I get very tired and the odor often makes me sick.&quot;</em></p>"
+                                  }
+                                }
+                              ]
+                            },
+                            "voiceSet": {
+                              "edges": []
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "title": "Young Sardine Workers",
+                            "learnmoreType": "images",
+                            "caption": "<p>Three young cutters at Seacoast Canning Co., Factory #4, Photograph by Lewis Hine, Eastport, Maine, August 1911. Courtesy of the Library of Congress.</p>",
+                            "narrative": "",
+                            "slideSet": {
+                              "edges": [
+                                {
+                                  "node": {
+                                    "title": "Three Young Cutters at Seacoast Canning Co.",
+                                    "caption": "<p><strong>Three Young Cutters at Seacoast Canning Co., Factory #4,</strong> photograph by Lewis Hine, Eastport, Maine, August 1911. Courtesy of the Library of Congress.</p>",
+                                    "narrative": "<p>These boys, ages 10 to 12, worked regularly at the canning factory. New York photographer Lewis Hine quit his teaching job and went to work at the National Child Labor Committee which documented children&rsquo;s working conditions. Hine also focused on collecting the children&rsquo;s stories. He spent August 1911 in sardine packing plants at Eastport and Lubec, Maine.</p>"
+                                  }
+                                },
+                                {
+                                  "node": {
+                                    "title": "Clarence Goodeill Shows How He Does It.",
+                                    "caption": "<p><strong><em>Clarence Goodeill Shows How He Does It.</em>&nbsp;</strong>photograph by Lewis Hine, Eastport, Maine, August 1911. Courtesy of the Library of Congress.</p>",
+                                    "narrative": "<p>Eight-year-old Clarence demonstrates for photographer Lewis Hine how he processes sardines at the #7, Seacoast Canning Co. in Eastport, Maine. Many children cut themselves as they handled slippery fish and sharp knives.</p>"
+                                  }
+                                },
+                                {
+                                  "node": {
+                                    "title": "Housing Conditions in Settlement at Seacoast Can",
+                                    "caption": "<p><strong><em>Housing conditions at Seacoast Cannery &hellip;,</em></strong><em>&nbsp;</em>photograph by Lewis Hine, Eastport, Maine, August 1911. Courtesy of the Library of Congress.</p>",
+                                    "narrative": "<p>The Goodeills with their seven children squeezed into this house. Four of the children, aged eight to fifteen, labored in the cannery. Working families lived in these seasonal camps built and owned by the canning companies. They also shopped in the company-owned stores. Although not constructed or insulated for year-round use, this was the permanent home of the Goodeill family.</p>"
+                                  }
+                                },
+                                {
+                                  "node": {
+                                    "title": "Group of Young Cartoners",
+                                    "caption": "<p><strong>Group of Young Cartoners,</strong> photograph by Lewis Hine, Eastport, Maine, August 1911. Courtesy of the Library of Congress.</p>",
+                                    "narrative": "<p>These children show the cans of sardines they pack into paper cartons. The boys and girls range from age eight to 14 years old. The oldest, reported making up to $4 after packing all day and into the evening.</p>"
                                   }
                                 }
                               ]
@@ -710,7 +717,7 @@
                     "title": "Life of a Mill Girl",
                     "articleType": "fore",
                     "caption": "",
-                    "narrative": "<p>In the early years, mill girls enjoyed a very different life and work than they experienced on the farm. Mill owners supported libraries and lyceums where lecturers shared the most current ideas. In order to convince Yankee farmers to let their daughters come to the cities to work, mill owners set a moral code. Boarding houses had curfews and the girls attended mandatory church services on Sunday. During the rest of the week, however, the young women worked twelve to thirteen hours a day under difficult conditions.</p><p>Mill owners believed that humid air kept threads supple and less likely to break. As a result, they nailed mill windows shut, making work spaces extremely hot and humid. Limited ventilation caused many to develop brown lung disease (byssinosis) from extended periods of breathing cotton fibers. In this panel, the workers holding handkerchiefs represent those sickened by working conditions.</p><p>By 1850, mill owners began cutting wages and speeding production. In response, many of New England&rsquo;s &quot;mill girls&quot; moved into other occupations or back home. Over time, an influx of immigrants, largely Irish and French Canadian, replaced them in the mills. Often uneducated and poor, these new arrivals agreed to work long hours for low wages, and at a fast pace. Through the end of the 1800s, mill workers lived and labored in increasingly desperate conditions.</p>",
+                    "narrative": "<p>In the early years, mill girls enjoyed a very different life than they experienced on the farm. Mill owners supported libraries and lyceums where lecturers shared the most current ideas. In order to convince Yankee farmers to let their daughters come to the cities to work, mill owners set a moral code. Boarding houses had curfews and the girls attended mandatory church services on Sundays. During the rest of the week, however, the young women worked twelve to thirteen hours a day under difficult conditions.</p><p>Mill owners believed that humid air kept threads supple and less likely to break. As a result, they nailed mill windows shut, making work spaces extremely hot and humid. Limited ventilation caused many to develop brown lung disease (byssinosis) from extended periods of breathing cotton fibers. In this panel, the workers holding handkerchiefs represent those sickened by working conditions.</p><p>By 1850, mill owners began cutting wages and speeding production. In response, many of New England&rsquo;s &quot;mill girls&quot; moved into other occupations or back home. Over time, an influx of immigrants, largely Irish and French Canadian, replaced them in the mills. Often uneducated and poor, these new arrivals agreed to work long hours for low wages at a fast pace. Through the end of the 1800s, mill workers lived and labored in increasingly desperate conditions.</p>",
                     "learnmoreSet": {
                       "edges": [
                         {
@@ -841,9 +848,9 @@
                   "node": {
                     "slug": "87-84-51",
                     "title": "Canning Workers",
-                    "altTag": "Canning workers poised in front of cannery",
+                    "altTag": "Workers poised in front of cannery",
                     "caption": "<p><strong>Portland Canning Company Workers</strong>, Unity, Maine, ca. 1910. Collection of the Maine State Museum. Gift of James Berry Vickery III, 87.84.51.</p>",
-                    "narrative": "<p>This photograph is of Portland Canning Company workers in Unity, Maine, sitting in front of their packed Batavia Corn boxes. Maine was the third largest producer of canned sweet corn in 1900. This canning factory operated seasonally for two months each year. In 1912, it employed 60 men and 13 women. Although many of the women wear dressy hats, they are also in their work coveralls. In 1900, Portland Canning Company had thirteen plants in rural areas around the state. By 1910, one in six Maine farmers grew corn that they sold to canning factories.</p><p>Artist, Judy Taylor depicted canning workers on the background of this panel. In 1900, workers in Maine&apos;s canning industry packed as diverse products as sweet corn, sardines, clams, blueberries, beans, squash, pumpkin, apples, and tomatoes.&nbsp;</p>",
+                    "narrative": "<p>This photograph is of Portland Canning Company workers in Unity, Maine, sitting in front of their packed Batavia Corn boxes. Maine was the third-largest producer of canned sweet corn in 1900. This canning factory operated seasonally for two months each year. In 1912, it employed 60 men and 13 women. Although many of the women wear dressy hats, they are also in their work coveralls. In 1900, Portland Canning Company had thirteen plants in rural areas around the state. By 1910, one in six Maine farmers grew corn that they sold to canning factories.</p><p>Artist, Judy Taylor depicted canning workers on the background of this panel. In 1900, workers in Maine&apos;s canning industry packed as diverse products as sweet corn, sardines, clams, blueberries, beans, squash, pumpkin, apples, and tomatoes.&nbsp;</p>",
                     "xPosition": 725,
                     "yPosition": 175
                   }
@@ -1270,9 +1277,9 @@
                                 },
                                 {
                                   "node": {
-                                    "title": "",
+                                    "title": "Splitting Wood",
                                     "caption": "<p><strong>Chunked Wood,&nbsp;</strong>photograph<strong>&nbsp;</strong>by Isaac Simpson, ca. 1900. Maine State Museum. Gift of Jim Thompson, 2017.24.1249.</p>",
-                                    "narrative": "<p>By the 1890s, lumber camps often had two stoves. One was used for cooking and sat in the kitchen end of the building. The other was for warmth and sat on the opposite side of the building near the door.&nbsp;</p><p>Lumbermen had to split a lot of wood to keep their stoves hot throughout their season at the logging camp which spanned from November to March each year.</p>"
+                                    "narrative": "<p>Lumbermen had to split a lot of wood to keep their stoves burning. The season at a logging camp spanned November to March, the coldest months of the year.</p><p>By the 1890s, lumber camps often had two stoves. One sat in the kitchen end of the building for cooking. The other warmed the opposite side of the building near the door.&nbsp;</p>"
                                   }
                                 },
                                 {
@@ -1298,7 +1305,7 @@
                     "title": "Challenges in the Woods",
                     "articleType": "fore",
                     "caption": "<p>Loggers at camp, by Isaac Simpson, ca. 1890. Collection of the Maine State Museum, 2000.18.820.</p>",
-                    "narrative": "<p>This panel foreground depicts a conversation among loggers and members of the Industrial Workers of the World, a union that attempted to organize Maine&rsquo;s woodsmen.</p><p>Life and working conditions in lumber camps were difficult. Lumbermen set up camp in the late fall. The bulk of the work was accomplished in the frigid winter months when it was easier to move trees through the forest on snow-covered ground. Crews of up to fifty men cut logs and loaded them on sleds drawn by oxen (later by horses and steam or gas-powered Lombard log haulers). The sleds carried the logs to the edges of streams where workers stacked them, waiting for spring river swells to carry the logs to lumber mills downstream.</p><p>Before the Civil War most lumbermen came from rural Maine and often worked alongside people they knew. As many seasoned loggers followed the lumber business west, Maine&rsquo;s lumber operators began using recruiting services in Boston, Portland, and Bangor. Agents solicited men, often immigrants, many of whom had never been in the woods. Recruiters frequently misrepresented the work and living circumstances to potential loggers. For example, recruits who had agreed to work in a lumber mill, instead found themselves aboard a train going to a camp deep in the woods, where they had to stay and work for as long as five months. They often arrived penniless and needed to be outfitted by the company store. The company took money from the men&rsquo;s pay to settle such debts, often leaving workers with barely any pay at all.</p><p>Sometimes disgruntled loggers abandoned camp. In response the Maine legislature passed a bill in 1907 making it a crime to leave one&rsquo;s place of work while owing money to the company store. Critics called this a &quot;peonage&quot; act, after the degrading term &quot;peon.&quot; This act forced workers to stay on the job or face jail time; by 1915, hundreds had been convicted under it.</p><p>In 1924, the Industrial Workers of the World (IWW) first attempted to organize the 15,000 men in Maine&rsquo;s lumber and timber industry. The IWW had been operating in Maine since 1906, but no union had been successful with woods workers. The workforce came from many cultural backgrounds and changed camps each season, which made organizing them especially difficult. Although the IWW never achieved its organizing goals for woodsmen, the union succeeded in improving living conditions in the camps and establishing an eight-hour work day at a time when the typical work day might last up to 14 hours. The IWW met resistance, including jail time for IWW leaders, for their efforts in bringing loggers to the union.</p>",
+                    "narrative": "<p>This panel foreground depicts a conversation among loggers and members of the Industrial Workers of the World, a union that attempted to organize Maine&rsquo;s woodsmen.</p><p>Life and working conditions in lumber camps were difficult. Lumbermen set up camp in the late fall. The bulk of the work was accomplished in the frigid winter months when it was easier to move trees through the forest on snow-covered ground. Crews of up to fifty men cut logs and loaded them on sleds drawn by oxen (later by horses and steam or gas-powered Lombard log haulers). The sleds carried the logs to the edges of streams where workers stacked them, waiting for spring river swells to carry the logs to lumber mills downstream.</p><p>Before the Civil War most lumbermen came from rural Maine and often worked alongside people they knew. As many seasoned loggers followed the lumber business west, Maine&rsquo;s lumber operators began using recruiting services in Quebec, New Brunswick, Bangor, Portland, and Boston. Agents solicited men, often immigrants, many of whom had never been in the woods. Recruiters frequently misrepresented the work and living circumstances to potential loggers. For example, recruits who had agreed to work in a lumber mill instead found themselves aboard a train going to a camp deep in the woods where they had to stay and work for as long as five months. They often arrived penniless and needed to be outfitted by the company store. The company took money from the men&rsquo;s pay to settle such debts, often leaving workers with barely any pay at all.</p><p>Sometimes disgruntled loggers abandoned camp. In response, the Maine legislature passed a bill in 1907 making it a crime to leave one&rsquo;s place of work while owing money to the company store. Critics called this a &quot;peonage&quot; act, after the degrading term &quot;peon.&quot; This act forced workers to stay on the job or face jail time; by 1915, hundreds had been convicted under it.</p><p>In 1924, the Industrial Workers of the World (IWW) first attempted to organize the 15,000 men in Maine&rsquo;s lumber and timber industry. The IWW had been operating in Maine since 1906, but no union had been successful with woods workers. The workforce came from many cultural backgrounds and changed camps each season, which made organizing them especially difficult. Although the IWW never achieved its organizing goals for woodsmen, the union succeeded in improving living conditions in the camps and establishing an eight-hour work day at a time when the typical work day might last up to 14 hours. The IWW met resistance, including jail time for IWW leaders, for their efforts in bringing loggers to the union.</p>",
                     "learnmoreSet": {
                       "edges": [
                         {
@@ -1804,7 +1811,7 @@
           "node": {
             "slug": "Rosie",
             "panelTitle": "Rosie the Riveter",
-            "panelBlurb": "<p>War often sparked changes in women&rsquo;s roles. For the first time, World War I women worked in heavy industry, such as ship building. This momentarily shattered the distinction between women&rsquo;s and men&rsquo;s work. <a class=\"more-link\" href=\"/panels/Rosie/intro/\">More...</a></p>",
+            "panelBlurb": "<p>War often sparked changes in women&rsquo;s roles. For the first time, World War II women worked in heavy industry, such as ship building. This momentarily shattered the distinction between women&rsquo;s and men&rsquo;s work. <a class=\"more-link\" href=\"/panels/Rosie/intro/\">More...</a></p>",
             "ordinal": 9,
             "hotspotSet": {
               "edges": [
@@ -2406,7 +2413,7 @@
                             "title": "The Beginnings of the Mural",
                             "learnmoreType": "video",
                             "caption": "<p><em>Artist Judy Taylor reflects on the process of creating the Maine Labor Mural.</em></p>",
-                            "narrative": "<p><br></p><p>Nationally recognized figurative and landscape painter Judy Taylor was born in Nebraska, Judy Taylor grew up in the Midwest and moved to New York City in 1985 to study at the New York Academy Art, the Art Students League, and the National Academy of Design. She has studied extensively in Europe. In 1996, she moved to Maine and was an Artist-in-Residence at Acadia National Park. Since 2002 she has resided full-time on Mount Desert Island in Maine and maintains a studio and conducts workshops in Seal Cove.</p>",
+                            "narrative": "<p><br></p><p>Nationally recognized figurative and landscape painter Judy Taylor was born in Nebraska, Judy Taylor grew up in the Midwest and moved to New York City in 1985 to study at the New York Academy of Art, the Art Students League, and the National Academy of Design. She has studied extensively in Europe. In 1996, she moved to Maine and was an Artist-in-Residence at Acadia National Park. Since 2002 she has resided full-time on Mount Desert Island in Maine and maintains a studio and conducts workshops in Seal Cove.</p>",
                             "slideSet": {
                               "edges": []
                             },
@@ -2446,7 +2453,7 @@
                             "title": "Artist's Intentions",
                             "learnmoreType": "video",
                             "caption": "<p><em>Judy Taylor discusses the controversy surrounding the removal of the Maine Labor Mural from the state&apos;s Department of Labor.</em></p>",
-                            "narrative": "<p><br></p><p>In 2011, Governor Paul LePage ordered the removal of the Maine Labor Mural from its location in the Department of Labor&apos;s reception room. It remained off public view in an undisclosed location for over a year. Its removal ignited public outcry. In 2013, it was placed on loan to the Maine State Museum where it was installed in the atrium of the Maine Cultural Building, where you are today. In 2019, the Maine Department of Labor transferred the Maine Labor Mural to the Maine State Museum.</p>",
+                            "narrative": "<p><br></p><p>In 2011, Governor Paul LePage ordered the removal of the Maine Labor Mural from its location in the Department of Labor&apos;s reception room. It remained off public view in an undisclosed location for over a year. Its removal ignited public outcry. In 2013, it was placed on loan to the Maine State Museum where it was installed in the atrium of the Maine Cultural Building. In 2019, the Maine Department of Labor transferred the Maine Labor Mural to the Maine State Museum.</p>",
                             "slideSet": {
                               "edges": []
                             },
